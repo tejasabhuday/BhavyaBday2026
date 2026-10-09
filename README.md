@@ -30,7 +30,7 @@ npm test
 
 ## Animation and accessibility
 
-Finite homepage title/art arrivals, a few star winks, scrapbook paper/page movement, hover doodles, scroll unfurling add motion. The homepage cake has flickering candles, a staggered blow-out, drifting smoke and a finite confetti shower. Reduced motion gives an immediate candle/wish state change with no confetti or smoke. The globe dances only after a deliberate click and has a pause control. Shake particles are finite. All animations respect `prefers-reduced-motion`; the globe stays static under that preference. Nothing autoplays audio. Important copy remains readable and every chapter remains directly browsable.
+Finite homepage title/art arrivals, a few star winks, scrapbook folding turns with mobile swipes, hover doodles, scroll unfurling add motion. The homepage cake has glowing, flickering candles that bend in the breath, a staggered blow-out, fine drifting smoke and a finite confetti shower. Reduced motion gives an immediate candle/wish state change with no confetti or smoke. The globe has soft glass reflections, floating gold particles and a smooth waltz that starts only after a deliberate click. Its animation clock pauses instead of restarting when paused. Shake particles are finite. All animations respect `prefers-reduced-motion`; the globe stays static under that preference. Nothing autoplays audio. Important copy remains readable and every chapter remains directly browsable.
 
 ## Media checklist and import
 
@@ -57,4 +57,6 @@ Deploy as Next.js on the existing Vercel project (`https://bhavya-bday2026.verce
 
 Bundled licensed fonts need no external font requests. There are no external movie links, embeds, trackers or analytics. The chapter passport is stored only in this browser. `noindex` metadata and headers reduce indexing; enable Vercel deployment protection for actual access control. See [ASSET_CREDITS.md](ASSET_CREDITS.md). Images are optimized WebP and video files are fetched only after a visitor selects a clip.
 
-Globe soundtrack support: place an approved MP3 at `public/media/audio/globe-song.mp3`, update `src/data/globe-music.json` if choosing a different song, and rebuild. Playback starts only with the dance button, pauses with the dance or when leaving/hiding the page, and stops the dance when the song ends. Mute and volume controls appear only when the file is supplied. No song file is bundled yet.
+Globe soundtrack support: place an approved MP3 at `public/media/audio/globe-song.mp3`, update `src/data/globe-music.json` if choosing a different song, and rebuild. Playback starts only with the dance button; the dance follows actual playing, pause and buffering events, pauses with the dance or when leaving/hiding the page, and stops the dance when the song ends. Mute and volume controls appear only when the file is supplied. No song file is bundled yet.
+
+Photo viewing: every supplied photo opens a full-screen native dialog with uncropped images, album-specific previous/next controls, keyboard arrows and horizontal swipes. Escape closes it and restores focus; closing restores page scrolling. Scrapbook cover photographs also open the album, with separate page links. The ten scrapbook routes remain usable without JavaScript. Animated turns intercept ordinary clicks only, preserving modified links, and reduced motion navigates immediately.

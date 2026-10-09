@@ -30,7 +30,7 @@ export default function Home() {
             </h1>
             <p className="home-dedication">
               {siteContent.dedication}
-              <br />A birthday world as bright as its leading lady.
+              <br />A little birthday gift, made just for you.
             </p>
             <Link className="button button-ink" href="/love-notes">
               Let me count the ways <span>→</span>

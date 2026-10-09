@@ -245,8 +245,8 @@ test("globe dances, pauses and shakes; reduced motion is respected and wishes cy
   expect(
     await page
       .locator(".dancer-pair")
-      .evaluate((el) => getComputedStyle(el).animationName),
-  ).toBe("none");
+      .evaluate((el) => getComputedStyle(el).animationPlayState),
+  ).toBe("paused");
   await page.getByRole("button", { name: "Shake the globe" }).click();
   await expect(page.locator(".globe-shaken .globe-particle")).toHaveCount(24);
   await page.emulateMedia({ reducedMotion: "reduce" });
@@ -282,12 +282,18 @@ test("globe soundtrack starts with the dance, pauses, mutes and stops on leaving
   expect(await audio.evaluate((el: HTMLAudioElement) => el.muted)).toBe(false);
   await page.getByRole("slider", { name: "Song volume" }).fill("0.2");
   expect(await audio.evaluate((el: HTMLAudioElement) => el.volume)).toBeCloseTo(0.2);
+  await audio.dispatchEvent("waiting");
+  await expect(page.locator(".is-dancing")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Pause the dance" })).toBeVisible();
+  await audio.dispatchEvent("playing");
+  await expect(page.locator(".is-dancing")).toHaveCount(1);
   await page.getByRole("button", { name: "Pause the dance" }).click();
   expect(await audio.evaluate((el: HTMLAudioElement) => el.paused)).toBe(true);
   const position = await audio.evaluate((el: HTMLAudioElement) => el.currentTime);
   await page.getByRole("button", { name: "Let them dance" }).click();
   await expect.poll(() => audio.evaluate((el: HTMLAudioElement, previous: number) => !el.paused && el.currentTime > previous, position)).toBe(true);
   await audio.evaluate((el: HTMLAudioElement) => { el.currentTime = el.duration - 0.05; });
+  await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => el.ended && el.paused)).toBe(true);
   await expect(page.locator(".is-dancing")).toHaveCount(0);
   expect(await audio.evaluate((el: HTMLAudioElement) => el.paused)).toBe(true);
   await page.getByRole("button", { name: "Let them dance" }).click();
@@ -368,4 +374,54 @@ test("candid clips in the album are silent and pause on switching or closing whe
     await expect(page.getByText("This moment couldn’t play. Try a different little scene.")).toHaveCount(0);
     await page.getByRole("button", { name: "Close this moment" }).click();
   }
+});
+
+test("photo albums open full-screen, stay in their group, swipe and restore focus", async ({ page }) => {
+  await page.goto("/memories");
+  const opener = page.locator(".album-grid .photo-open").first();
+  await opener.click();
+  const viewer = page.getByRole("dialog", { name: "Full-screen photo album" });
+  await expect(viewer).toBeVisible();
+  await expect(viewer.locator(".photo-viewer-bottom")).toContainText("1 / 3");
+  await expect(viewer.getByRole("button", { name: "Close photo album" })).toBeFocused();
+  expect(await page.evaluate(() => document.body.style.overflow)).toBe("hidden");
+  await page.keyboard.press("ArrowRight");
+  await expect(viewer.locator(".photo-viewer-bottom")).toContainText("2 / 3");
+  await viewer.locator(".photo-viewer-image").dispatchEvent("touchstart", { touches: [{ identifier: 0, clientX: 280, clientY: 300 }] });
+  await viewer.locator(".photo-viewer-image").dispatchEvent("touchend", { changedTouches: [{ identifier: 0, clientX: 80, clientY: 310 }] });
+  await expect(viewer.locator(".photo-viewer-bottom")).toContainText("3 / 3");
+  await expect(viewer.getByRole("button", { name: "Next photo" })).toBeDisabled();
+  await page.keyboard.press("Escape");
+  await expect(viewer).not.toBeVisible();
+  await expect(opener).toBeFocused();
+  expect(await page.evaluate(() => document.body.style.overflow)).not.toBe("hidden");
+  await page.getByRole("button", { name: "Little you", exact: true }).click();
+  await page.locator(".album-grid .photo-open").first().click();
+  await expect(viewer.locator(".photo-viewer-bottom")).toContainText("1 / 5");
+  await viewer.getByRole("button", { name: "Close photo album" }).click();
+});
+
+test("scrapbook folds before navigating and horizontal swipes turn pages", async ({ page }) => {
+  await page.goto("/love-notes/1");
+  await page.getByRole("link", { name: "Next lovely thing" }).click();
+  await expect(page.locator(".turn-next")).toBeVisible();
+  await expect(page).toHaveURL(/\/love-notes\/2$/);
+  const leaf = page.locator(".scrapbook-writing-leaf");
+  await leaf.dispatchEvent("touchstart", { touches: [{ identifier: 0, clientX: 280, clientY: 300 }] });
+  await leaf.dispatchEvent("touchend", { changedTouches: [{ identifier: 0, clientX: 260, clientY: 100 }] });
+  await expect(page).toHaveURL(/\/love-notes\/2$/);
+  await leaf.dispatchEvent("touchstart", { touches: [{ identifier: 0, clientX: 280, clientY: 300 }] });
+  await leaf.dispatchEvent("touchend", { changedTouches: [{ identifier: 0, clientX: 80, clientY: 310 }] });
+  await expect(page).toHaveURL(/\/love-notes\/3$/);
+  await page.locator(".photo-open").click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.getByRole("dialog").locator(".photo-viewer-image").dispatchEvent("touchstart", { touches: [{ identifier: 0, clientX: 280, clientY: 300 }] });
+  await page.getByRole("dialog").locator(".photo-viewer-image").dispatchEvent("touchend", { changedTouches: [{ identifier: 0, clientX: 80, clientY: 310 }] });
+  await expect(page.getByRole("dialog").locator(".photo-viewer-bottom")).toContainText("4 / 10");
+  await expect(page).toHaveURL(/\/love-notes\/3$/);
+  await page.keyboard.press("Escape");
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.getByRole("link", { name: "Previous page" }).click();
+  await expect(page).toHaveURL(/\/love-notes\/2$/);
+  expect(await page.locator(".scrapbook-paper").evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
 });

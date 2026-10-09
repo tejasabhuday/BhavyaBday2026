@@ -19,7 +19,7 @@ export default function LoveNotesPage() {
         <OpenWhen />
         <PageTurn
           next={2}
-          aside="Every page has the same favourite leading lady."
+          aside="A little love on every page."
         />
       </div>
     </main>

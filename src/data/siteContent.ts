@@ -8,72 +8,62 @@ export const siteContent = {
   loveNotes: [
     {
       title: "Your smile.",
-      note: "A smile like yours should come with a warning: may cause butterflies, terrible concentration, and an unreasonable amount of staring.",
-      extra:
-        "The whole room gets prettier when you smile. Yes, that is scientifically unproven. No, I am not taking it back.",
+      note: "I still stop for a second when you smile. Even in a photograph.",
+      extra: "I made a whole page for it, and I’m still here looking at you.",
       photoId: "love-01",
     },
     {
       title: "Those expressions.",
-      note: "One face. A thousand expressions. Every single one deserves its own close-up and a very dramatic round of applause.",
-      extra:
-        "The cheeky look, the little eye roll, the not-even-trying look. Beautiful baingan, you are an entire rom-com in one person.",
+      note: "The little eye roll. The cheeky face. The look you give the camera when you’re being silly. I love all of them.",
+      extra: "I can never pick a favourite. Please keep making more.",
       photoId: "love-02",
     },
     {
       title: "Your kind of beautiful.",
-      note: "There is pretty, and then there is you. The kind of beautiful that makes a perfectly normal day feel like someone turned the fairy lights on.",
-      extra:
-        "Dressed up or completely casual, you never need to audition for the spotlight. It already knows your name.",
+      note: "I love seeing you dressed up. I love seeing you on an ordinary day just as much.",
+      extra: "You never need a reason to be beautiful to me.",
       photoId: "love-03",
     },
     {
       title: "Your everyday magic.",
-      note: "You don’t need a special occasion, a perfect outfit, or a cinematic sunset. You just existing on a normal day is already a beautiful memory.",
-      extra:
-        "If ordinary looks like you, I would like an unlimited supply of ordinary, please.",
+      note: "You just existing on a normal day is already a beautiful memory to me.",
+      extra: "Nothing has to happen. Sometimes I just want to look at you and listen to you talk.",
       photoId: "love-04",
     },
     {
       title: "The little mischief.",
-      note: "The world needs serious things. You also deserve the silly poses, the goofy moments, and the kind of laugh that ruins a perfectly composed photograph.",
-      extra:
-        "Chunnilal, being adorable and a little ridiculous is a very powerful combination. Use it irresponsibly.",
+      note: "These are some of my favourite photographs of you: a little silly, a little mischievous, completely yourself.",
+      extra: "Chunnilal, please don’t ever lose this side of you.",
       photoId: "love-05",
     },
     {
       title: "Your effortless style.",
-      note: "A good outfit is a good outfit. On you, it suddenly has a plot, an entrance, and opening credits.",
-      extra:
-        "Whatever you choose to wear, the best part is still the girl wearing it. Poo-level confidence encouraged.",
+      note: "I love how you look in this. And in about a hundred other outfits I could have put here.",
+      extra: "The best part is always you.",
       photoId: "love-06",
     },
     {
       title: "Little you.",
-      note: "The girl in those childhood photographs deserves her own fan club. Tiny scene-stealer. Already very important.",
-      extra:
-        "Every little chapter helped make the Bhavya of today. Every chapter belongs in this scrapbook.",
+      note: "I’m so glad I get to see these little pieces of your childhood. That smile was there all along.",
+      extra: "Little Bhavya deserves a place in this gift too.",
       photoId: "love-07",
     },
     {
       title: "Your sense of adventure.",
-      note: "A new place, a fresh view, a little curiosity. There is a whole world out there waiting for a Bhavya-shaped plot twist.",
-      extra:
-        "May twenty-one bring you beautiful detours, ridiculous stories, and photographs you can’t wait to keep.",
+      note: "I hope you get to see all the places you’re curious about. And stop for as many pictures as you like.",
+      extra: "Here’s to more fresh air, lovely views, and days you’ll want to remember.",
       photoId: "love-08",
     },
     {
       title: "All your possibilities.",
-      note: "You are turning twenty-one, not reaching the end credits. There are so many versions of you still waiting to have their moment.",
-      extra:
-        "Big dreams, small joys, wildly good surprises. The next chapter has an excellent leading lady.",
+      note: "There’s so much ahead of you. I hope twenty-one gives you room to try things, change your mind, and find what makes you happy.",
+      extra: "I’m cheering for you. On the exciting days and the uncertain ones.",
       photoId: "love-09",
     },
     {
       title: "Simply being Bhavya.",
-      note: "Beautiful baingan. Chunnilal. My everything. None of those names quite manages to contain all the lovely that is you.",
-      extra:
-        "So here is the very cheesy, very true final page: the world is better with you in it. Happy twenty-first, birthday girl.",
+      note: "Beautiful baingan. Chunnilal. My everything. I love calling you all of these, but I love that you’re Bhavya most of all.",
+      extra: "Happy twenty-first. I’m so glad I get to love you.",
       photoId: "love-10",
     },
   ],
@@ -95,12 +85,12 @@ export const siteContent = {
       text: "Take a breath. A bad day is allowed to be just a bad day. It doesn’t get to tell you who you are. I’m cheering for you.",
     },
     {
-      label: "You feel like the main character",
-      text: "Then please consider this your standing ovation. An entirely unreasonable amount of applause, from me.",
+      label: "You need a little encouragement",
+      text: "You can take your time. You can try again. I believe in you, and I’m right here cheering you on.",
     },
     {
       label: "You need a birthday-sized smile",
-      text: "An extremely important reminder: you are the birthday girl, the main character, and a certified beautiful baingan. Twenty-one looks very good on you.",
+      text: "An extremely important reminder: you are the birthday girl and my very beautiful baingan. Twenty-one looks very good on you.",
     },
   ],
 };

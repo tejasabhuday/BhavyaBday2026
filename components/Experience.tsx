@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { MotionConfig } from "motion/react";
+import { usePhotoViewer } from "./PhotoViewer";
 import type { Photo } from "@/src/data/media";
 export function StoryMotion({ children }: { children: React.ReactNode }) {
   return <MotionConfig reducedMotion="user">{children}</MotionConfig>;
@@ -10,11 +11,14 @@ export function PhotoFrame({
   photo,
   available,
   priority = false,
+  interactive = true,
 }: {
   photo: Photo;
   available: boolean;
   priority?: boolean;
+  interactive?: boolean;
 }) {
+  const openPhoto = usePhotoViewer();
   const [failed, setFailed] = useState(false);
   return (
     <div className={`photo-frame photo-${photo.id}`}>
@@ -45,6 +49,7 @@ export function PhotoFrame({
           <span className="placeholder-note">A little moment to keep.</span>
         </div>
       )}
+      {available && !failed && interactive && <button className="photo-open" aria-label={`Open photo: ${photo.caption}`} onClick={() => openPhoto(photo.id)}><span aria-hidden="true">↗</span></button>}
     </div>
   );
 }

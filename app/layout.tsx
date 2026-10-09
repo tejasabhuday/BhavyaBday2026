@@ -11,6 +11,8 @@ import { chapters } from "@/src/data/siteContent";
 import { Navigation } from "@/components/Chrome";
 import { Footer } from "@/components/PageFrame";
 import { StoryMotion } from "@/components/Experience";
+import { PhotoViewer } from "@/components/PhotoViewer";
+import { availablePhotos } from "@/src/data/media.server";
 const siteUrl =
   process.env.SITE_URL ||
   (process.env.VERCEL_URL
@@ -36,6 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <StoryMotion>
+          <PhotoViewer available={availablePhotos()}>
           <a className="skip-link" href="#main">
             Skip to content
           </a>
@@ -54,6 +57,7 @@ export default function RootLayout({
           </noscript>
           {children}
           <Footer />
+        </PhotoViewer>
         </StoryMotion>
       </body>
     </html>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 type GlobeMusic = { title: string; artist: string; file: string };
 export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
   const [dancing, setDancing] = useState(false);
+  const [requested, setRequested] = useState(false);
   const [shake, setShake] = useState(0);
   const [muted, setMuted] = useState(false);
   const [musicError, setMusicError] = useState(false);
@@ -14,6 +15,7 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
     const pauseWhenHidden = () => {
       if (document.visibilityState === "hidden") {
         danceRequested.current = false;
+        setRequested(false);
         player?.pause();
         setDancing(false);
       }
@@ -28,7 +30,8 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
   function toggleDance() {
     const next = !danceRequested.current;
     danceRequested.current = next;
-    setDancing(next);
+    setRequested(next);
+    setDancing(next && !audio.current);
     if (!next) {
       audio.current?.pause();
       return;
@@ -41,7 +44,7 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
       void player.play().then(() => {
         if (!danceRequested.current) player.pause();
       }).catch(() => {
-        if (danceRequested.current) setMusicError(true);
+        if (danceRequested.current) { setMusicError(true); setDancing(true); }
       });
     }
   }
@@ -56,10 +59,12 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
         >
           <defs>
             <radialGradient id="glass" cx="32%" cy="28%" r="75%">
-              <stop offset="0" stopColor="#fff" stopOpacity=".58" />
+              <stop offset="0" stopColor="#fff" stopOpacity=".35" />
               <stop offset=".6" stopColor="#fff" stopOpacity=".12" />
-              <stop offset="1" stopColor="#fadd43" stopOpacity=".3" />
+              <stop offset="1" stopColor="#fadd43" stopOpacity=".18" />
             </radialGradient>
+            <filter id="soft-glass"><feGaussianBlur stdDeviation="7" /></filter>
+            <radialGradient id="glass-light"><stop stopColor="#fff" stopOpacity=".8" /><stop offset="1" stopColor="#fff" stopOpacity="0" /></radialGradient>
             <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
               <stop stopColor="#29231e" />
               <stop offset=".5" stopColor="#080808" />
@@ -96,6 +101,7 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
               <ellipse cx="320" cy="275" rx="230" ry="80" />
               <path d="M90 275h460M320 45v460" />
             </g>
+            <g className="globe-floating-gold" fill="#f3cc57" aria-hidden="true">{Array.from({ length: 32 }, (_, i) => <circle key={i} cx={140 + i * 67 % 360} cy={90 + i * 53 % 350} r={i % 3 === 0 ? 2.5 : 1.4} style={{ animationDelay: `${-i * .7}s`, animationDuration: `${6 + i % 5}s` }} />)}</g>
             <g className="dancer-pair">
               <g className="dancer-man" fill="#151416">
                 <circle cx="283" cy="188" r="22" />
@@ -167,7 +173,8 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
               d="M162 199q23-93 100-110"
               stroke="#fff"
               strokeWidth="10"
-              opacity=".7"
+              opacity=".28"
+              filter="url(#soft-glass)"
               fill="none"
               strokeLinecap="round"
             />
@@ -175,10 +182,12 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
               d="M156 222l-3 18"
               stroke="#fff"
               strokeWidth="7"
-              opacity=".55"
+              opacity=".2"
               fill="none"
               strokeLinecap="round"
             />
+            <ellipse cx="195" cy="180" rx="48" ry="105" transform="rotate(28 195 180)" fill="url(#glass-light)" opacity=".55" />
+            <path d="M458 151q82 150-6 266" fill="none" stroke="#fff" strokeWidth="18" opacity=".18" filter="url(#soft-glass)" />
           </g>
           <circle
             cx="320"
@@ -228,11 +237,11 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
         <div className="globe-controls">
           <button
             className="button button-ink"
-            aria-pressed={dancing}
+            aria-pressed={requested}
             onClick={toggleDance}
           >
-            {dancing ? "Pause the dance" : "Let them dance"}{" "}
-            <span aria-hidden="true">{dancing ? "Ⅱ" : "♡"}</span>
+            {requested ? "Pause the dance" : "Let them dance"}{" "}
+            <span aria-hidden="true">{requested ? "Ⅱ" : "♡"}</span>
           </button>
           <button
             className="button globe-shake-button"
@@ -249,9 +258,13 @@ export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
               preload="none"
               muted={muted}
               aria-label={`${music.title} by ${music.artist}`}
-              onError={() => setMusicError(true)}
+              onError={() => { setMusicError(true); if (danceRequested.current) setDancing(true); }}
+              onPlaying={() => { if (danceRequested.current) setDancing(true); }}
+              onPause={() => setDancing(false)}
+              onWaiting={() => setDancing(false)}
               onEnded={() => {
                 danceRequested.current = false;
+                setRequested(false);
                 setDancing(false);
               }}
             />

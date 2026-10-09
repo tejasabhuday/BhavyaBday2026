@@ -11,7 +11,7 @@ const dreams = [
       "The silly kind. The unexpected kind. The please-stop-I-can’t-breathe kind.",
   },
   {
-    title: "A little main-character energy",
+    title: "More days that feel like you",
     detail:
       "Taking up space. Wearing the outfit. Being completely, wonderfully you.",
   },

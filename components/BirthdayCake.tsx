@@ -12,7 +12,7 @@ export function BirthdayCake() {
     if (phase !== "lit") return;
     setRound((r) => r + 1);
     setPhase(reduced ? "wished" : "blowing");
-    if (!reduced) timer.current = setTimeout(() => setPhase("wished"), 1400);
+    if (!reduced) timer.current = setTimeout(() => setPhase("wished"), 2200);
   }
   function relight() {
     if (timer.current) clearTimeout(timer.current);
@@ -59,12 +59,14 @@ export function BirthdayCake() {
               const index = back ? i : i - 11;
               const x = (back ? 200 : 212) + index * 24;
               const y = back ? 209 - Math.sin(index / 10 * Math.PI) * 8 : 228 + Math.sin(index / 9 * Math.PI) * 9;
-              return <g className="cake-candle" key={i} transform={`translate(${x},${y})`} style={{ "--blow-delay": `${(20 - i) * 0.022}s`, "--flicker-delay": `${-i * 0.23}s` } as CSSProperties}>
+              return <g className="cake-candle" key={i} transform={`translate(${x},${y})`} style={{ "--blow-delay": `${(440 - x) / 240 * 0.7}s`, "--flicker-delay": `${-i * 0.23}s` } as CSSProperties}>
                 <rect x="-4" y="-45" width="8" height="45" rx="2" fill={i % 2 ? "#fff9de" : "#ffd655"} />
                 <path d="M-4-35l8-5m-8 18 8-5m-8 18 8-5" stroke={i % 2 ? "#f57ab1" : "#df9c21"} strokeWidth="2" />
                 <path d="M0-46v-6" stroke="#694735" strokeWidth="2" />
+                <ellipse className="candle-glow" cx="0" cy="-62" rx="17" ry="21" fill="#ffd65a" />
                 <g className="cake-flame"><path d="M0-74C-11-62-9-51 0-51S10-61 0-74" fill="url(#cake-flame)" /><path d="M0-64q-5 10 0 11 5-1 0-11" fill="#fffde1" /></g>
-                <path className="cake-smoke" d="M0-53q-13-12 0-22t-3-25" fill="none" stroke="#936774" strokeWidth="2" strokeLinecap="round" />
+                <path className="cake-smoke" d="M0-53q-13-12 0-22t-3-25" fill="none" stroke="#936774" strokeWidth="1.2" strokeLinecap="round" />
+                <path className="cake-smoke cake-smoke-fine" d="M0-52q8-9-1-18t5-23" fill="none" stroke="#ac8791" strokeWidth=".8" strokeLinecap="round" />
               </g>;
             })}
           </g>

@@ -3,7 +3,7 @@ import { PhotoFrame } from "./Experience";
 import { Motif } from "./Artwork";
 import { siteContent } from "@/src/data/siteContent";
 import { photos } from "@/src/data/media";
-import { PaperArrival } from "./StoryAnimation";
+import { ScrapbookTurn } from "./ScrapbookTurn";
 export function ScrapbookContents({ available }: { available: string[] }) {
   return (
     <>
@@ -31,9 +31,8 @@ export function ScrapbookContents({ available }: { available: string[] }) {
         {siteContent.loveNotes.map((note, i) => {
           const photo = photos.find((p) => p.id === note.photoId)!;
           return (
-            <Link
+            <div
               className={`scrap-index-card scrap-color-${i % 4}`}
-              href={`/love-notes/${i + 1}`}
               key={note.title}
             >
               <span className="tiny-label">
@@ -50,9 +49,11 @@ export function ScrapbookContents({ available }: { available: string[] }) {
                   />
                 </div>
               )}
-              <h3>{note.title}</h3>
-              <span className="tiny-label">TURN TO THIS PAGE →</span>
-            </Link>
+              <Link href={`/love-notes/${i + 1}`}>
+                <h3>{note.title}</h3>
+                <span className="tiny-label">TURN TO THIS PAGE →</span>
+              </Link>
+            </div>
           );
         })}
       </div>
@@ -69,7 +70,7 @@ export function ScrapbookSpread({
   const note = siteContent.loveNotes[number - 1];
   const photo = photos.find((p) => p.id === note.photoId)!;
   return (
-    <>
+    <ScrapbookTurn key={number} number={number}>
       <nav className="scrap-page-tabs" aria-label="Scrapbook pages">
         {siteContent.loveNotes.map((n, i) => (
           <Link
@@ -82,8 +83,8 @@ export function ScrapbookSpread({
           </Link>
         ))}
       </nav>
-      <PaperArrival key={number}>
-        <article className={`scrapbook-spread scrap-color-${(number - 1) % 4}`}>
+      <div className="scrapbook-paper">
+        <article className={`scrapbook-spread scrap-page-${number} scrap-layout-${(number - 1) % 3} scrap-color-${(number - 1) % 4}`}>
           <div className="scrapbook-photo-leaf">
             <span className="scrapbook-photo-tape" aria-hidden="true" />
             <figure className="scrapbook-photo">
@@ -96,11 +97,11 @@ export function ScrapbookSpread({
                   [
                     "That smile deserves its own page.",
                     "Every expression. Every bit of you.",
-                    "The leading lady, in her own light.",
-                    "Ordinary days. Extraordinary girl.",
-                    "A very serious little scene-stealer.",
-                    "The outfit has entered the chat.",
-                    "Tiny Bhavya. Already iconic.",
+                    "You, looking lovely as always.",
+                    "My favourite part of an ordinary day.",
+                    "I love this silly side of you.",
+                    "You make everything look lovely.",
+                    "Little you. Such a big smile.",
                     "A girl with places to go.",
                     "Twenty-one. A whole story ahead.",
                     "The very lovely birthday girl.",
@@ -113,7 +114,7 @@ export function ScrapbookSpread({
             </span>
             <span className="scrapbook-margin-note script">
               Exhibit {String(number).padStart(2, "0")}:<br />
-              extremely lovable.
+              a favourite little moment.
             </span>
           </div>
           <div className="scrapbook-writing-leaf">
@@ -132,7 +133,7 @@ export function ScrapbookSpread({
             </span>
           </div>
         </article>
-      </PaperArrival>
+      </div>
       <div className="scrapbook-pagination">
         {number > 1 ? (
           <Link
@@ -160,6 +161,6 @@ export function ScrapbookSpread({
           </Link>
         )}
       </div>
-    </>
+    </ScrapbookTurn>
   );
 }

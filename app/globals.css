@@ -3243,3 +3243,86 @@ video:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .cake-confetti, .cake-smoke, .cake-breath { display: none; }
 }
+
+/* A photograph stays whole, whether it is on paper or filling the screen. */
+.photo-open { position: absolute; inset: 0; z-index: 1; border: 0; background: transparent; cursor: zoom-in; }
+.photo-open span { position: absolute; right: 10px; bottom: 10px; width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; background: #fff9eeda; color: #8d164e; box-shadow: 0 2px 10px #0002; }
+.photo-open:focus-visible { outline: 3px solid #ad1859; outline-offset: -4px; }
+.photo-viewer { position: fixed; inset: 0; width: 100%; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0; background: #20141bf5; color: #fff5df; }
+.photo-viewer::backdrop { background: #20141b; }
+.photo-viewer-panel { height: 100%; width: 100%; display: grid; grid-template-rows: auto minmax(0,1fr) auto; padding: 16px max(16px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)); }
+.photo-viewer-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.viewer-close, .photo-viewer-bottom button { border: 1px solid #fff5df66; color: inherit; background: #fff1; border-radius: 50%; width: 44px; height: 44px; cursor: pointer; font-size: 22px; }
+.photo-viewer-image { position: relative; min-height: 0; margin: 12px 0; touch-action: pan-y; }
+.photo-viewer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; max-width: 800px; width: 100%; margin: auto; text-align: center; }
+.photo-viewer-bottom p { margin: 0 0 4px; font-size: clamp(22px,3vw,32px); }
+.photo-viewer-bottom button { flex-shrink: 0; }
+.photo-viewer-bottom button:disabled { opacity: .25; cursor: default; }
+.photo-viewer button:focus-visible { outline: 3px solid #ffdc50; outline-offset: 4px; }
+
+/* The old sheet folds around its binding before the next route opens. */
+.scrapbook-turn { perspective: 1800px; touch-action: pan-y; }
+.scrapbook-paper { position: relative; transform-style: preserve-3d; }
+.scrapbook-photo-leaf, .scrapbook-writing-leaf { backface-visibility: hidden; }
+.turn-next .scrapbook-writing-leaf { transform-origin: left center; animation: fold-next .42s ease-in both; }
+.turn-previous .scrapbook-photo-leaf { transform-origin: right center; animation: fold-previous .42s ease-in both; }
+.turn-next .scrapbook-spread, .turn-previous .scrapbook-spread { overflow: visible; }
+.turn-arriving .scrapbook-paper { animation: paper-unfold .55s cubic-bezier(.2,.65,.3,1) both; transform-origin: center center; }
+.scrapbook-swipe-hint { text-align: center; font-size: 22px; color: #a12b57; margin: 24px 0 0; }
+@keyframes fold-next { 0% { transform: rotateY(0); filter: brightness(1); } 100% { transform: rotateY(-105deg) skewY(-2deg); filter: brightness(.68); box-shadow: -35px 10px 35px #6b244440; } }
+@keyframes fold-previous { 0% { transform: rotateY(0); filter: brightness(1); } 100% { transform: rotateY(105deg) skewY(2deg); filter: brightness(.68); box-shadow: 35px 10px 35px #6b244440; } }
+@keyframes paper-unfold { 0% { opacity: .4; transform: rotateY(32deg) scale(.97); } 100% { opacity: 1; transform: rotateY(0) scale(1); } }
+.scrap-layout-1 .scrapbook-photo { max-width: 365px; transform: rotate(4deg); padding: 12px 12px 27px; }
+.scrap-layout-1 .scrapbook-photo-leaf { background: #ffd0e4; background-image: radial-gradient(#b32e6220 1px,transparent 1px); background-size: 15px 15px; }
+.scrap-layout-1 .scrapbook-writing-leaf { background: #fff5b9; }
+.scrap-layout-2 .scrapbook-photo { transform: rotate(-1.5deg); max-width: 450px; border-radius: 8px; }
+.scrap-layout-2 .scrapbook-photo .photo-frame { aspect-ratio: 1; }
+.scrap-layout-2 .scrapbook-writing-leaf { background: repeating-linear-gradient(0deg,#fff5f0 0,#fff5f0 31px,#df929b22 32px); }
+.scrap-page-7 .scrapbook-photo .photo-frame, .scrap-page-8 .scrapbook-photo .photo-frame { aspect-ratio: 4/3; }
+.scrap-page-7 .scrapbook-photo { transform: rotate(3deg); }
+.scrap-page-8 .scrapbook-photo { max-width: 455px; transform: rotate(-5deg); }
+.scrap-page-4 .scrapbook-photo { max-width: 335px; transform: rotate(5deg); }
+.scrap-page-6 .scrapbook-photo-leaf { background: #ffe599; }
+.scrap-page-10 .scrapbook-photo-leaf { background: #ffbedb; }
+@media(min-width:801px) { .scrap-layout-1 .scrapbook-photo-leaf { order: 2; } .scrap-layout-1 .scrapbook-writing-leaf { order: 1; } .scrap-layout-1.turn-next .scrapbook-writing-leaf { transform-origin: right; } }
+@media(max-width:800px) { .turn-next .scrapbook-paper { animation: mobile-fold-next .42s ease-in both; transform-origin: left center; } .turn-previous .scrapbook-paper { animation: mobile-fold-previous .42s ease-in both; transform-origin: right center; } .turn-next .scrapbook-writing-leaf, .turn-previous .scrapbook-photo-leaf { animation: none; } }
+@keyframes mobile-fold-next { to { transform: rotateY(-65deg) skewY(-2deg); opacity: .5; filter: brightness(.8); } }
+@keyframes mobile-fold-previous { to { transform: rotateY(65deg) skewY(2deg); opacity: .5; filter: brightness(.8); } }
+
+/* A continuous waltz: all movement pauses together, including while audio buffers. */
+.dancer-pair { animation: couple-dance 6s cubic-bezier(.45,0,.55,1) infinite paused; }
+.dancer-man { animation: man-step 3s ease-in-out infinite paused; }
+.dancer-lady { animation: lady-step 3s ease-in-out infinite paused; }
+.dancing-skirt { animation: skirt-twirl 3s ease-in-out infinite paused; }
+.dancer-heart { animation: globe-heart-beat 3s ease-in-out infinite paused; transform-origin: 328px 140px; }
+.is-dancing .dancer-pair { animation: couple-dance 6s cubic-bezier(.45,0,.55,1) infinite running; }
+.is-dancing .dancer-man { animation: man-step 3s ease-in-out infinite running; }
+.is-dancing .dancer-lady { animation: lady-step 3s ease-in-out infinite running; }
+.is-dancing .dancing-skirt { animation: skirt-twirl 3s ease-in-out infinite running; }
+.is-dancing .dancer-heart { animation: globe-heart-beat 3s ease-in-out infinite running; }
+.globe-floating-gold circle { animation: gold-float 8s ease-in-out infinite paused; transform-box: fill-box; transform-origin: center; }
+.is-dancing .globe-floating-gold circle { animation-play-state: running; }
+@keyframes gold-float { 0%,100% { transform: translate(0,12px); opacity: .3; } 50% { transform: translate(9px,-18px); opacity: .95; } }
+@keyframes couple-dance { 0%,100% { transform: translate(-7px,0) rotate(-3deg); } 25% { transform: translate(0,-3px) rotate(0); } 50% { transform: translate(7px,0) rotate(3deg); } 75% { transform: translate(0,-3px) rotate(0); } }
+@keyframes skirt-twirl { 0%,100% { transform: skewX(3deg) scaleX(.98); } 50% { transform: skewX(-5deg) scaleX(1.05); } }
+.candle-glow { opacity: .16; filter: blur(5px); }
+.cake-lit .candle-glow { animation: candle-halo 2.4s ease-in-out var(--flicker-delay) infinite; }
+.cake-blowing .candle-glow { animation: halo-out .8s ease-out var(--blow-delay) both; }
+.cake-wished .candle-glow { opacity: 0; }
+.cake-blowing .cake-flame { animation: cake-flame-out .8s ease-in var(--blow-delay) both; }
+.cake-blowing .cake-smoke, .cake-wished .cake-smoke { animation: cake-smoke-rise 2.6s ease-out calc(var(--blow-delay) + .6s) both; }
+.cake-blowing .cake-smoke-fine, .cake-wished .cake-smoke-fine { animation-name: cake-smoke-fine; animation-delay: calc(var(--blow-delay) + .8s); }
+@keyframes candle-halo { 0%,100% { opacity: .14; } 50% { opacity: .25; } }
+@keyframes halo-out { to { opacity: 0; } }
+@keyframes cake-flame-out { 0% { opacity: 1; transform: rotate(0) scale(1); } 25% { opacity: 1; transform: skewX(-22deg) rotate(-12deg) scale(1.2,.8); } 55% { opacity: .8; transform: skewX(-38deg) rotate(-26deg) scale(1.3,.5); } 80% { opacity: .4; transform: translateX(-6px) rotate(-40deg) scale(.7,.25); } 100% { opacity: 0; transform: translateX(-11px) scale(.05); } }
+@keyframes cake-smoke-rise { 0% { opacity: 0; transform: translateY(5px) scale(.4); } 15% { opacity: .35; } 60% { opacity: .16; transform: translate(-7px,-25px) scale(1.05); } 100% { opacity: 0; transform: translate(-20px,-50px) scale(1.5); } }
+@keyframes cake-smoke-fine { 0% { opacity: 0; transform: scale(.5); } 20% { opacity: .3; } 100% { opacity: 0; transform: translate(12px,-55px) scale(1.6); } }
+@media(prefers-reduced-motion:reduce) { .scrapbook-paper, .scrapbook-photo-leaf, .scrapbook-writing-leaf { animation: none !important; } .candle-glow { animation: none !important; } }
+@media(min-width:801px) {
+  .turn-next .scrap-layout-1 .scrapbook-writing-leaf, .turn-previous .scrap-layout-1 .scrapbook-photo-leaf { animation: none; }
+  .turn-next .scrap-layout-1 .scrapbook-photo-leaf { transform-origin: left center; animation: fold-next .42s ease-in both; }
+  .turn-previous .scrap-layout-1 .scrapbook-writing-leaf { transform-origin: right center; animation: fold-previous .42s ease-in both; }
+}
+.scrap-page-2 .scrapbook-photo .photo-frame, .scrap-page-7 .scrapbook-photo .photo-frame { aspect-ratio: 3/2; }
+.scrap-page-3 .scrapbook-photo .photo-frame, .scrap-page-6 .scrapbook-photo .photo-frame, .scrap-page-9 .scrapbook-photo .photo-frame { aspect-ratio: 3/4; }
+.scrapbook-spread { perspective: 1600px; transform-style: preserve-3d; }

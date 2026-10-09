@@ -20,7 +20,7 @@ const wishes = [
   "Laughs so good that the photograph comes out blurry.",
   "All the lovely things you haven’t thought to wish for yet.",
   "The courage to choose the things that make you feel like you.",
-  "A little main-character sparkle on even the most ordinary Tuesday.",
+  "Something to smile about on even the most ordinary Tuesday.",
   "More light, more colour, and a very unreasonable amount of cake.",
   "Twenty-one looks gorgeous on you, beautiful baingan. May the whole chapter be just as lovely.",
 ];

@@ -20,7 +20,7 @@ export function PhotoFrame({
     <div className={`photo-frame photo-${photo.id}`}>
       {available && !failed ? (
         <Image
-          src={`/media/photos/${photo.id}.webp`}
+          src={`/media/photos/${photo.id}.webp?v=${photo.revision ?? "1"}`}
           alt={photo.alt}
           fill
           sizes={

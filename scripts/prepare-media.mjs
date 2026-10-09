@@ -1,5 +1,6 @@
 import sharp from "sharp";
-import { existsSync, mkdirSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import path from "node:path";
 import { manifest } from "./media-manifest.mjs";
 const sourceDir = process.argv[2];
@@ -10,6 +11,8 @@ if (!sourceDir) {
   process.exit(1);
 }
 mkdirSync("public/media/photos", { recursive: true });
+const manifestPath = "src/data/media-manifest.json";
+const photos = JSON.parse(readFileSync(manifestPath, "utf8"));
 for (const [id, source] of manifest) {
   const original = path.join(sourceDir, source);
   const alias = path.join(sourceDir, `${id}.jpg`);
@@ -27,5 +30,9 @@ for (const [id, source] of manifest) {
     })
     .webp({ quality: 82 })
     .toFile(`public/media/photos/${id}.webp`);
+  photos.find((photo) => photo.id === id).revision = createHash("sha256")
+    .update(readFileSync(`public/media/photos/${id}.webp`))
+    .digest("hex").slice(0, 12);
   console.log(`Prepared ${id}.webp (proportions preserved)`);
 }
+writeFileSync(manifestPath, JSON.stringify(photos, null, 2) + "\n");

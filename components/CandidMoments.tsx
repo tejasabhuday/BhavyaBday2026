@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 type Clip = { title: string; file: string; poster?: string; captions?: string };
 export function CandidMoments({ items }: { items: Clip[] }) {
   const [selected, setSelected] = useState<number | null>(null);
@@ -27,7 +28,7 @@ export function CandidMoments({ items }: { items: Clip[] }) {
         {items.map((clip, i) => (
           <button
             key={clip.file}
-            className="button button-ink"
+            className="candid-card"
             aria-pressed={selected === i}
             onClick={() => {
               player.current?.pause();
@@ -35,7 +36,13 @@ export function CandidMoments({ items }: { items: Clip[] }) {
               setError(false);
             }}
           >
-            {clip.title} <span>{selected === i ? "−" : "▶"}</span>
+            {clip.poster && (
+              <span className="candid-thumbnail">
+                <Image src={clip.poster} alt="" fill sizes="(max-width: 600px) 90vw, (max-width: 900px) 45vw, 23vw" style={{ objectFit: "contain" }} />
+                <span className="candid-play" aria-hidden="true">{selected === i ? "−" : "▶"}</span>
+              </span>
+            )}
+            <span className="candid-caption">{clip.title}</span>
           </button>
         ))}
       </div>

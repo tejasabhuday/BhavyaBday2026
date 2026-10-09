@@ -35,7 +35,7 @@ Finite homepage title/art arrivals, a few star winks, scrapbook paper/page movem
 
 ## Media checklist and import
 
-**[MEDIA_REQUEST.md](MEDIA_REQUEST.md)** is the complete checklist: 10 independent scrapbook photo slots, 3 present-day portrait slots, 5 childhood slots and 4 adventure slots. Photos can be reused; 22 slots do not require 22 different originals. Two candid videos are optional in her album. The globe needs no uploaded photo/video. No personal media has been supplied yet; original artwork deliberately fills the missing frames.
+**[MEDIA_REQUEST.md](MEDIA_REQUEST.md)** is the complete checklist: 10 independent scrapbook photo slots, 3 present-day portrait slots, 5 childhood slots and 4 adventure slots. Photos can be reused; 22 slots do not require 22 different originals. Four selected candid videos are supplied in her album. The globe needs no uploaded photo/video. All 22 photo slots are now supplied from the uploaded archive; see [MEDIA_SELECTION.md](MEDIA_SELECTION.md) for exact selections.
 
 ```sh
 npm run media:prepare -- /absolute/path/to/approved-photos
@@ -44,7 +44,7 @@ npm run media:audit
 npm run build
 ```
 
-Photo source mappings are centralized in `src/data/media-manifest.json`. Semantic `<slot>.jpg` aliases and exact manifest originals work. Sharp creates proportion-preserving WebP; every site image uses contain, with no face crops, retouching or generated faces. ffmpeg creates H.264/AAC clips and posters while preserving duration and native audio. Reviewed `<slot>.vtt` files supply captions. Raw media stays outside the web root; public derivatives are ignored by Git until explicitly approved. Media is discovered at build time, so rebuild after adding files.
+Photo source mappings are centralized in `src/data/media-manifest.json`, and clip mappings in `src/data/video-manifest.json`. Semantic `<slot>.jpg` aliases and exact manifest originals work. Sharp creates proportion-preserving WebP and records content revisions to refresh cached previews; every site image uses contain, with no face crops, retouching or generated faces. ffmpeg creates H.264/AAC clips and posters while preserving duration and native audio. Reviewed `<slot>.vtt` files supply captions. Raw media stays outside the web root; public derivatives are ignored by Git until explicitly approved. Media is discovered at build time, so rebuild after adding files.
 
 No standalone screening room is needed. If candid clips arrive, a small on-demand section appears in the memory book; without clips it stays hidden. The full birthday-film link is optional through `siteContent.movieUrl`, and absent links do not create a fake CTA. Other people's wishes require their approval before inclusion.
 
@@ -57,4 +57,4 @@ No standalone screening room is needed. If candid clips arrive, a small on-deman
 
 Deploy as Next.js on the existing Vercel project (`https://bhavya-bday2026.vercel.app`), Node 24, `npm ci`, `npm run build`. If connected to `main`, pushing triggers the project's configured build; a push is not proof of Vercel completion. No required backend or credentials. `SITE_URL` is optional social metadata.
 
-Bundled licensed fonts need no external font requests. There are no external movie links, embeds, trackers or analytics. The chapter passport is stored only in this browser. `noindex` metadata and headers reduce indexing; enable Vercel deployment protection for actual access control. See [ASSET_CREDITS.md](ASSET_CREDITS.md). Performance with the eventual personal media remains to be checked after upload.
+Bundled licensed fonts need no external font requests. There are no external movie links, embeds, trackers or analytics. The chapter passport is stored only in this browser. `noindex` metadata and headers reduce indexing; enable Vercel deployment protection for actual access control. See [ASSET_CREDITS.md](ASSET_CREDITS.md). Images are optimized WebP and video files are fetched only after a visitor selects a clip.

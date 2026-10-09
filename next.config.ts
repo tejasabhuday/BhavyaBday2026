@@ -1,5 +1,11 @@
 import type { NextConfig } from "next";
 const config: NextConfig = {
+  images: {
+    localPatterns: [
+      { pathname: "/media/photos/**" },
+      { pathname: "/media/videos/**", search: "" },
+    ],
+  },
   async redirects() {
     return [
       {

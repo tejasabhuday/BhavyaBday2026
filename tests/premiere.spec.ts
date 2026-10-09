@@ -24,7 +24,7 @@ for (const [route, title] of routes) {
       page.getByRole("heading", { level: 1, name: title, exact: true }),
     ).toBeVisible();
     await page.evaluate(() => document.fonts.ready);
-    for (const img of await page.locator(".photo-frame img").all()) {
+    for (const img of await page.locator(".photo-frame img, .candid-thumbnail img").all()) {
       await img.scrollIntoViewIfNeeded();
       await expect
         .poll(() =>
@@ -33,6 +33,7 @@ for (const [route, title] of routes) {
           ),
         )
         .toBe(true);
+      await img.evaluate((el: HTMLImageElement) => el.decode());
     }
     expect(
       await page.evaluate(
@@ -307,4 +308,16 @@ test("candid clips in the album are silent and pause on switching or closing whe
   }
   await page.getByRole("button", { name: "Close this moment" }).click();
   await expect(video).toHaveCount(0);
+  for (const choice of await choices.all()) {
+    await choice.click();
+    await video.evaluate((el: HTMLVideoElement) => {
+      el.preload = "metadata";
+      el.load();
+    });
+    await expect
+      .poll(() => video.evaluate((el: HTMLVideoElement) => Number.isFinite(el.duration) && el.duration > 0 && el.videoWidth > 0))
+      .toBe(true);
+    await expect(page.getByText("This moment couldn’t play. Try a different little scene.")).toHaveCount(0);
+    await page.getByRole("button", { name: "Close this moment" }).click();
+  }
 });

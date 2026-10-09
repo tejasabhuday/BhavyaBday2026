@@ -7,3 +7,5 @@
 - Personal photos and videos: supplied by the gift creator in `Phtos&VideosBhavya.zip` for this website. Deployed selections are documented in `MEDIA_SELECTION.md`: 22 distinct photographs filling 22 slots and four candid clips. Only optimized selected derivatives are committed; untouched originals and unused media stay outside the public root.
 
 - Globe soundtrack: no song audio is bundled yet. The configured choice is “Feels Like Home” by Chantal Kreviazuk. Song playback controls are ready for a supplied permitted MP3; no film audio has been copied or fabricated.
+
+- Homepage cake: original two-tier SVG illustration with pink frosting, cream piping, a golden stand and 21 candles. Flame, breath, smoke and confetti animations are original CSS; no external image or sound is used.

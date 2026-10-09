@@ -184,12 +184,7 @@ test("ancient scroll opens with keyboard, preserves the letter, works without JS
     path: `test-results/${info.project.name}-scroll-open.png`,
     fullPage: true,
   });
-  await page.getByRole("button", { name: "Blow out the candles" }).click();
-  await expect(
-    page.getByRole("heading", { name: "I hope it comes true." }),
-  ).toBeVisible();
-  await page.getByRole("button", { name: "Light them again" }).click();
-  await expect(page.locator(".candles-lit")).toHaveCount(1);
+  await expect(page.locator(".birthday-finale, .birthday-wish")).toHaveCount(0);
   await page.locator("summary").click();
   await expect(page.locator(".scroll-envelope")).not.toHaveAttribute("open");
   const context = await browser.newContext({
@@ -203,6 +198,36 @@ test("ancient scroll opens with keyboard, preserves the letter, works without JS
     staticPage.getByRole("heading", { name: "My beautiful baingan," }),
   ).toBeVisible();
   await context.close();
+});
+test("homepage ends with a large cake whose 21 candles blow out and relight", async ({ page }, info) => {
+  await page.goto("/");
+  await expect(page.locator("main > section").last()).toHaveAttribute("id", "birthday-cake");
+  const cake = page.locator("#birthday-cake");
+  await cake.scrollIntoViewIfNeeded();
+  await expect(cake.locator(".cake-candle")).toHaveCount(21);
+  await expect(cake.getByRole("img")).toHaveAccessibleName(/twenty-one lit candles/);
+  await page.getByRole("button", { name: "Blow out the candles" }).click();
+  await expect(cake).toHaveClass(/cake-blowing/);
+  await expect(page.getByRole("button", { name: "Making birthday magic" })).toHaveAttribute("aria-disabled", "true");
+  await expect(cake.locator(".cake-confetti > span")).toHaveCount(48);
+  await expect(cake).toHaveClass(/cake-wished/);
+  await expect(page.getByRole("heading", { name: "Happy twenty-first, my beautiful baingan." })).toBeVisible();
+  for (const flame of await cake.locator(".cake-flame").all()) {
+    expect(await flame.evaluate((el) => getComputedStyle(el).opacity)).toBe("0");
+  }
+  await page.screenshot({ path: `test-results/${info.project.name}-cake-wish.png`, fullPage: false });
+  await page.getByRole("button", { name: "Light them again" }).click();
+  await expect(cake).toHaveClass(/cake-lit/);
+  await expect(cake.locator(".cake-confetti")).toHaveCount(0);
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.getByRole("button", { name: "Blow out the candles" }).click();
+  await expect(cake).toHaveClass(/cake-wished/);
+  expect(await cake.locator(".cake-flame").first().evaluate((el) => getComputedStyle(el).animationName)).toBe("none");
+  await expect(cake.locator(".cake-confetti")).not.toBeVisible();
+  await page.getByRole("button", { name: "Light them again" }).focus();
+  await page.keyboard.press("Enter");
+  await expect(cake).toHaveClass(/cake-lit/);
+  expect(await cake.locator(".cake-flame").first().evaluate((el) => getComputedStyle(el).opacity)).toBe("1");
 });
 test("globe dances, pauses and shakes; reduced motion is respected and wishes cycle", async ({
   page,

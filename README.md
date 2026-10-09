@@ -4,7 +4,7 @@ A bright pink-and-yellow birthday website that centres **Bhavya**: her smile, ex
 
 ## Pages
 
-- `/`: a sunshine-yellow premiere and pink birthday chapter cards.
+- `/`: a sunshine-yellow premiere, pink birthday chapter cards, and a large cake finale with 21 candles, blow-out smoke, confetti, a birthday wish and relighting.
 - `/love-notes`: a scrapbook cover and table of contents.
 - `/love-notes/1` through `/love-notes/10`: **ten independent scrapbook pages**, each with an approved-photo slot, two handwritten-style notes, page tabs, and previous/next navigation.
 - `/memories`: her portraits, childhood and adventure albums, birthday wishes, and optional approved candid clips. No couple-album tab.
@@ -26,11 +26,11 @@ npm run build
 npm test
 ```
 
-`npm run start` runs a production build. Playwright starts its own fresh server on port 3100 and exercises mobile 360×800 and desktop 1440×900. It checks all fifteen content routes, scrapbook photos/navigation, her album filters, the five-chapter flow and removed-page redirects, the scroll with/without JS, dance/pause/shake, 21 wishes, reduced motion, and the legacy redirect. Screenshots are written to ignored `test-results/`. Outside cloud, install Chromium with `npx playwright install chromium`; a custom system binary can be selected with `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
+`npm run start` runs a production build. Playwright starts its own fresh server on port 3100 and exercises mobile 360×800 and desktop 1440×900. It checks all fifteen content routes, scrapbook photos/navigation, her album filters, the five-chapter flow and removed-page redirects, the scroll with/without JS, homepage candle blowing/relighting, dance/pause/shake, 21 wishes, reduced motion, and the legacy redirect. Screenshots are written to ignored `test-results/`. Outside cloud, install Chromium with `npx playwright install chromium`; a custom system binary can be selected with `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
 ## Animation and accessibility
 
-Finite homepage title/art arrivals, a few star winks, scrapbook paper/page movement, hover doodles, scroll unfurling add motion. The globe dances only after a deliberate click and has a pause control. Shake particles are finite. All animations respect `prefers-reduced-motion`; the globe stays static under that preference. Nothing autoplays audio. Important copy remains readable and every chapter remains directly browsable.
+Finite homepage title/art arrivals, a few star winks, scrapbook paper/page movement, hover doodles, scroll unfurling add motion. The homepage cake has flickering candles, a staggered blow-out, drifting smoke and a finite confetti shower. Reduced motion gives an immediate candle/wish state change with no confetti or smoke. The globe dances only after a deliberate click and has a pause control. Shake particles are finite. All animations respect `prefers-reduced-motion`; the globe stays static under that preference. Nothing autoplays audio. Important copy remains readable and every chapter remains directly browsable.
 
 ## Media checklist and import
 

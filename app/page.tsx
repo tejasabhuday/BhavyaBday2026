@@ -6,6 +6,7 @@ import { SecretHeart } from "@/components/Surprises";
 import { chapters, siteContent } from "@/src/data/siteContent";
 import { heroImage } from "@/src/data/media";
 import { availablePhotos } from "@/src/data/media.server";
+import { BirthdayCake } from "@/components/BirthdayCake";
 export default function Home() {
   const hasHero = availablePhotos().includes(heroImage.id);
   return (
@@ -105,6 +106,7 @@ export default function Home() {
           I wrote you something →
         </Link>
       </section>
+      <BirthdayCake />
     </main>
   );
 }

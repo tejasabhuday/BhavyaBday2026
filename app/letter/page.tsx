@@ -8,7 +8,7 @@ export default function LetterPage() {
     <main id="main" className="letter-page">
       <div className="page-width">
         <PageIntro
-          number="05"
+          number="04"
           kicker="A LITTLE LETTER. ALL MY LOVE."
           title="For my"
           italic="everything."
@@ -17,7 +17,7 @@ export default function LetterPage() {
         <AncientScroll />
         <BirthdayCandles />
         <PageTurn
-          next={5}
+          next={4}
           aside="A letter to keep. A little magic to discover."
         />
       </div>

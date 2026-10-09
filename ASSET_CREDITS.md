@@ -1,9 +1,8 @@
 # Artwork and resources
 
-- Birthday collage, scrapbook paper/stickers, heart/flower/ticket motifs, ancient-scroll styling, and film-inspired covers: original SVG/CSS work for this site.
+- Birthday collage, scrapbook paper/stickers, heart/flower/ticket motifs, ancient-scroll styling: original SVG/CSS work for this site.
 - Dancing globe: original SVG glass keepsake, black suit/yellow dress and faceless fictional couple. No personal facial features are generated, altered or copied. It is animated with CSS only after a user action.
 - Cormorant Garamond, DM Sans and Caveat: locally bundled Fontsource fonts, SIL Open Font License 1.1. Licence copies are in `licenses/`.
-- Film names identify aesthetic inspirations: K3G, 10 Things I Hate About You, How to Lose a Guy in 10 Days, Jab We Met, Om Shanti Om and 50 First Dates. No copied studio posters, logos, film frames, dialogue audio or soundtracks. No film-information or trailer links. Notting Hill is not included.
 - Personal nicknames and the memories inside the retained letter were provided by the gift creator. Other birthday wording is editable and does not invent additional events, achievements, ages or locations.
 - Personal photos and videos: supplied by the gift creator in `Phtos&VideosBhavya.zip` for this website. Deployed selections are documented in `MEDIA_SELECTION.md`: 22 distinct photographs filling 22 slots and four candid clips. Only optimized selected derivatives are committed; untouched originals and unused media stay outside the public root.
 

@@ -9,6 +9,11 @@ const config: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/rom-coms",
+        destination: "/letter",
+        permanent: true,
+      },
+      {
         source: "/screening-room",
         destination: "/a-little-magic",
         permanent: true,

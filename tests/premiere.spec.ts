@@ -4,7 +4,6 @@ const routes = [
   ["/", "Bhavya, in full bloom."],
   ["/love-notes", "10 things I love about you."],
   ["/memories", "Little you. Wonderful you."],
-  ["/rom-coms", "A little cinema. A lot of you."],
   ["/letter", "For my everything."],
   ["/a-little-magic", "Twenty-one. Still full of wonder."],
   ...siteContent.loveNotes.map((note, i) => [
@@ -103,7 +102,7 @@ test("chapter navigation and nested scrapbook stamps work", async ({
     ),
   );
   await page.reload();
-  await expect(page.locator(".passport-stamps .stamped")).toHaveCount(6);
+  await expect(page.locator(".passport-stamps .stamped")).toHaveCount(5);
   await expect(page.locator(".passport-complete")).toBeVisible();
 });
 test("all ten scrapbook pages have individual photo slots and page navigation", async ({
@@ -147,32 +146,21 @@ test("memory album centres her and birthday wishes are reversible", async ({
   await wish.click();
   await expect(wish).toHaveAttribute("aria-pressed", "false");
 });
-test("movie shelf keeps K3G, adds 50 First Dates and has no external film links", async ({
-  page,
-}) => {
-  await page.goto("/rom-coms");
-  await expect(page.locator(".film-cover")).toHaveCount(6);
-  await expect(page.getByText("Notting Hill", { exact: true })).toHaveCount(0);
-  await expect(page.getByText("50 First Dates", { exact: true })).toBeVisible();
-  await expect(page.locator('main a[href^="http"]')).toHaveCount(0);
-  await page
-    .getByRole("button", { name: "All the drama", exact: true })
-    .click();
-  await expect(page.locator(".film-cover")).toHaveCount(2);
-  await page
-    .getByRole("button", { name: "Open Kabhi Khushi Kabhie Gham" })
-    .click();
-  await expect(page.locator("#film-k3g-dedication")).toBeVisible();
-  await page
-    .getByRole("button", { name: "Open Kabhi Khushi Kabhie Gham" })
-    .click();
-  await expect(page.locator("#film-k3g-dedication")).not.toBeVisible();
-  await page.getByRole("button", { name: "Soft & sweet", exact: true }).click();
-  await expect(page.locator(".film-cover")).toHaveCount(1);
-  await page.getByRole("button", { name: "Open 50 First Dates" }).click();
-  await expect(
-    page.locator("#film-fifty-first-dates-dedication"),
-  ).toBeVisible();
+test("removed movie chapter redirects and the remaining chapters flow into the letter and globe", async ({ page }) => {
+  const oldRoute = await page.goto("/rom-coms");
+  expect(oldRoute?.request().redirectedFrom()).not.toBeNull();
+  await expect(page).toHaveURL(/\/letter$/);
+  await page.goto("/");
+  await expect(page.locator('a[href="/rom-coms"]')).toHaveCount(0);
+  await expect(page.locator(".chapter-card")).toHaveCount(4);
+  await expect(page.locator(".passport-stamps > a")).toHaveCount(5);
+  await page.goto("/memories");
+  await page.locator(".page-turn a").click();
+  await expect(page).toHaveURL(/\/letter$/);
+  await expect(page.locator(".chapter-kicker > span").first()).toHaveText("04");
+  await page.locator(".page-turn a").click();
+  await expect(page).toHaveURL(/\/a-little-magic$/);
+  await expect(page.locator(".chapter-kicker > span").first()).toHaveText("05");
 });
 test("ancient scroll opens with keyboard, preserves the letter, works without JS", async ({
   page,

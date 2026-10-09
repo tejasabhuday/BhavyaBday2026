@@ -554,6 +554,9 @@ video:focus-visible {
   grid-template-columns: repeat(3, 1fr);
   gap: 19px;
 }
+.chapter-grid > .chapter-card:last-child {
+  grid-column: span 2;
+}
 .chapter-card {
   padding: 25px;
   position: relative;

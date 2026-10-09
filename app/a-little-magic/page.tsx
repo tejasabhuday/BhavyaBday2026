@@ -10,7 +10,7 @@ export default function MagicPage() {
     <main id="main" className="magic-page">
       <div className="page-width">
         <PageIntro
-          number="06"
+          number="05"
           kicker="HER OWN LITTLE WORLD OF MAGIC"
           title="Twenty-one."
           italic="Still full of wonder."

@@ -71,8 +71,8 @@ export function Navigation() {
         }
       }}
     >
-      <Link className="wordmark" href="/" aria-label="For Bhavya, home">
-        for Bhavya<span>.</span>
+      <Link className="wordmark" href="/" aria-label="For My beautiful baingan, home">
+        for My <span className="wordmark-name">beautiful baingan.</span>
       </Link>
       <nav className="desktop-nav" aria-label="Chapters">
         {chapters.map((c) => (

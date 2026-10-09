@@ -3,6 +3,7 @@ import { PageIntro, PageTurn } from "@/components/PageFrame";
 import { DancingGlobe } from "@/components/DancingGlobe";
 import { BirthdayWishJar } from "@/components/BirthdayWishJar";
 import { ChapterPassport } from "@/components/Chrome";
+import { availableGlobeMusic } from "@/src/data/media.server";
 export const metadata: Metadata = { title: "A little birthday magic" };
 export default function MagicPage() {
   return (
@@ -15,7 +16,7 @@ export default function MagicPage() {
           italic="Still full of wonder."
           description="A little keepsake, a tiny dance, and a wish for every beautiful thing this next chapter could bring."
         />
-        <DancingGlobe />
+        <DancingGlobe music={availableGlobeMusic()} />
         <div className="magic-birthday-wish">
           <span className="tiny-label">THE WISH INSIDE THE GLOBE</span>
           <p className="script">

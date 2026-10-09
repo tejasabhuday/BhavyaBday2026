@@ -73,7 +73,7 @@ Optional **full birthday film**: send the completed file or the real approved HT
 
 The `/a-little-magic` page already includes an original glass keepsake globe with a dancing couple: black suit, yellow dress, gold stars. Dance/pause, shake-the-globe, and 21 birthday-wish interactions are built in. The couple is a stylised illustration, not a generated portrait or face swap. Nothing personal is needed to make it work.
 
-There is no default music. If you want a soundtrack later, send a track you have permission to use; it must start only after a deliberate visitor action. Do not send copyrighted film soundtracks as assumed background music.
+Globe music controls are now implemented, but no soundtrack file has been supplied. The chosen track is “Feels Like Home” by Chantal Kreviazuk, featured in How to Lose a Guy in 10 Days. If you want a soundtrack later, send a track you have permission to use; it must start only after a deliberate visitor action. Do not send copyrighted film soundtracks as assumed background music.
 
 ## 7. Optional personal wording
 

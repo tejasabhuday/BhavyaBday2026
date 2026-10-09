@@ -20,6 +20,7 @@ for (const [route, title] of routes) {
     const response = await page.goto(route);
     expect(response?.status()).toBe(200);
     expect(response?.headers()["x-robots-tag"]).toContain("noindex");
+    await expect(page.getByRole("link", { name: "For My beautiful baingan, home" })).toBeVisible();
     await expect(
       page.getByRole("heading", { level: 1, name: title, exact: true }),
     ).toBeVisible();
@@ -249,7 +250,41 @@ test("globe dances, pauses and shakes; reduced motion is respected and wishes cy
   await expect(page.locator(".wish-jar-note")).toContainText("WISH 21 / 21");
   await page.getByRole("button", { name: "One more little wish" }).click();
   await expect(page.locator(".wish-jar-note")).toContainText("WISH 1 / 21");
-  await expect(page.locator("audio,video,iframe")).toHaveCount(0);
+  await expect(page.locator("video,iframe")).toHaveCount(0);
+});
+test("globe soundtrack starts with the dance, pauses, mutes and stops on leaving", async ({ page }) => {
+  await page.goto("/a-little-magic");
+  const audio = page.locator("audio");
+  if (await audio.count() === 0) {
+    await expect(page.getByRole("button", { name: "Mute song" })).toHaveCount(0);
+    await expect(page.locator(".globe-music")).toHaveCount(0);
+    return;
+  }
+  expect(await audio.evaluate((el: HTMLAudioElement) => el.paused && !el.autoplay && el.preload === "none")).toBe(true);
+  await page.getByRole("button", { name: "Let them dance" }).click();
+  await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => !el.paused && el.currentTime > 0)).toBe(true);
+  await page.getByRole("button", { name: "Mute song" }).click();
+  expect(await audio.evaluate((el: HTMLAudioElement) => el.muted)).toBe(true);
+  await page.getByRole("button", { name: "Unmute song" }).click();
+  expect(await audio.evaluate((el: HTMLAudioElement) => el.muted)).toBe(false);
+  await page.getByRole("slider", { name: "Song volume" }).fill("0.2");
+  expect(await audio.evaluate((el: HTMLAudioElement) => el.volume)).toBeCloseTo(0.2);
+  await page.getByRole("button", { name: "Pause the dance" }).click();
+  expect(await audio.evaluate((el: HTMLAudioElement) => el.paused)).toBe(true);
+  const position = await audio.evaluate((el: HTMLAudioElement) => el.currentTime);
+  await page.getByRole("button", { name: "Let them dance" }).click();
+  await expect.poll(() => audio.evaluate((el: HTMLAudioElement, previous: number) => !el.paused && el.currentTime > previous, position)).toBe(true);
+  await audio.evaluate((el: HTMLAudioElement) => { el.currentTime = el.duration - 0.05; });
+  await expect(page.locator(".is-dancing")).toHaveCount(0);
+  expect(await audio.evaluate((el: HTMLAudioElement) => el.paused)).toBe(true);
+  await page.getByRole("button", { name: "Let them dance" }).click();
+  await expect.poll(() => audio.evaluate((el: HTMLAudioElement) => !el.paused && el.currentTime < 2)).toBe(true);
+  await page.evaluate(() => {
+    (window as unknown as { globeAudio: HTMLAudioElement }).globeAudio = document.querySelector("audio")!;
+  });
+  await page.getByRole("link", { name: "For My beautiful baingan, home" }).click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect.poll(() => page.evaluate(() => (window as unknown as { globeAudio: HTMLAudioElement }).globeAudio.paused)).toBe(true);
 });
 test("old screening URL redirects and reduced-motion navigation remains usable", async ({
   page,

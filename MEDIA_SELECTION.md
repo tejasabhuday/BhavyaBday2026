@@ -1,6 +1,6 @@
 # Imported birthday media
 
-The selected files from `Phtos&VideosBhavya.zip` are now imported: **22 photo slots using 19 distinct photographs, and four candid videos**. All archive photos and video preview frames were assessed. Sources remain in ignored `private-media/`; only the listed optimized derivatives are deployed.
+The selected files from `Phtos&VideosBhavya.zip` are now imported: **22 photo slots using 22 distinct photographs, and four candid videos**. All archive photos and video preview frames were assessed. Sources remain in ignored `private-media/`; only the listed optimized derivatives are deployed.
 
 `BhavyaBday.zip` exceeds the attachment tool’s 32 MiB transfer limit and could not be downloaded or assessed. The accessible archive fills every planned slot, including the childhood photographs and all ten scrapbook pages. Additional assets in the larger archive are not included.
 
@@ -20,15 +20,15 @@ The selected files from `Phtos&VideosBhavya.zip` are now imported: **22 photo sl
 | gallery | `PHOTO-2026-10-08-12-17-45 8.jpg` | Bhavya looking over her shoulder in a red outfit in an art gallery |
 | mountains | `PHOTO-2026-10-08-12-17-45 9.jpg` | Bhavya in a blue striped shirt looking toward a mountain view |
 | forest | `PHOTO-2026-10-08-12-17-45 12.jpg` | Bhavya posing with her hands on her hips among tall trees |
-| love-01 | `PHOTO-2026-10-08-12-17-45 17.jpg` | Bhavya smiling up at the camera on a leaf-covered street |
+| love-01 | `PHOTO-2026-10-08-12-17-45.jpg` | Bhavya smiling indoors in a grey floral dress with a heart pendant |
 | love-02 | `PHOTO-2026-10-08-12-28-42 20.jpg` | Bhavya making a playful expression in glasses and a maroon outfit |
 | love-03 | `PHOTO-2026-10-08-12-17-45 13.jpg` | Bhavya smiling in a maroon embroidered outfit with statement earrings |
 | love-04 | `PHOTO-2026-10-08-12-17-45 6.jpg` | A casual close-up of Bhavya in a cream fleece jacket |
 | love-05 | `PHOTO-2026-10-08-12-17-45 15.jpg` | Bhavya drinking from a brass cup in a green floral sweater |
 | love-06 | `PHOTO-2026-10-08-12-17-45 14.jpg` | Bhavya in a gold festive outfit and jewellery |
 | love-07 | `PHOTO-2026-10-08-12-28-42 6.jpg` | Young Bhavya laughing on a balcony with pink colour on her forehead |
-| love-08 | `PHOTO-2026-10-08-12-17-45 7.jpg` | Bhavya sitting in a white outfit beside the sea |
-| love-09 | `PHOTO-2026-10-08-12-17-45 8.jpg` | Bhavya looking over her shoulder in a red outfit in an art gallery |
+| love-08 | `PHOTO-2026-10-08-12-28-42 11.jpg` | Young Bhavya sitting on a stone bank beside the water |
+| love-09 | `PHOTO-2026-10-08-12-17-45 18.jpg` | Bhavya sitting at a warmly lit outdoor café with her hand resting on her cheek |
 | love-10 | `PHOTO-2026-10-08-12-17-45 4.jpg` | Bhavya making a playful expression outdoors in a pink-and-yellow outfit |
 
 ## Candid video selection
@@ -45,3 +45,7 @@ Photos retain their full frames, without face changes or retouching. The four cl
 Social-media, camera-viewfinder and video-call screenshots are omitted in favour of clean photographs. The additional group, family and couple photographs are held in reserve to keep this birthday site centred on her. Other clips are omitted to keep the album concise; no orientation corrections or montage edits have been made.
 
 No additional photos are required for the current design. If extra assets from the larger ZIP should be considered, supply just those assets in separate ZIPs under 32 MiB.
+
+## Less repetition
+
+All ten scrapbook pages now use different originals from the twelve album/homepage slots. Page 1 uses the indoor heart-pendant smile; page 8 uses an unused childhood waterside moment; page 9 uses the warm café portrait. The homepage leading-lady photo still appears in the present-day album as its opening portrait. The scrapbook cover thumbnails naturally preview each page’s own photograph.

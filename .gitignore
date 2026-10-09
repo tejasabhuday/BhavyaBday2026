@@ -8,6 +8,8 @@ test-results/
 private-media/
 public/media/photos/*
 public/media/videos/*
+public/media/audio/*
+!public/media/audio/.gitkeep
 !public/media/photos/.gitkeep
 !public/media/videos/.gitkeep
 

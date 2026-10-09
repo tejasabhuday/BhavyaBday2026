@@ -1,8 +1,50 @@
 "use client";
-import { useState } from "react";
-export function DancingGlobe() {
+import { useEffect, useRef, useState } from "react";
+type GlobeMusic = { title: string; artist: string; file: string };
+export function DancingGlobe({ music = null }: { music?: GlobeMusic | null }) {
   const [dancing, setDancing] = useState(false);
   const [shake, setShake] = useState(0);
+  const [muted, setMuted] = useState(false);
+  const [musicError, setMusicError] = useState(false);
+  const audio = useRef<HTMLAudioElement>(null);
+  const danceRequested = useRef(false);
+  useEffect(() => {
+    const player = audio.current;
+    if (player) player.volume = 0.45;
+    const pauseWhenHidden = () => {
+      if (document.visibilityState === "hidden") {
+        danceRequested.current = false;
+        player?.pause();
+        setDancing(false);
+      }
+    };
+    document.addEventListener("visibilitychange", pauseWhenHidden);
+    return () => {
+      danceRequested.current = false;
+      player?.pause();
+      document.removeEventListener("visibilitychange", pauseWhenHidden);
+    };
+  }, [music?.file]);
+  function toggleDance() {
+    const next = !danceRequested.current;
+    danceRequested.current = next;
+    setDancing(next);
+    if (!next) {
+      audio.current?.pause();
+      return;
+    }
+    const player = audio.current;
+    if (player) {
+      if (player.ended) player.currentTime = 0;
+      setMusicError(false);
+      // Invoke play directly from the click, preserving the browser's user gesture.
+      void player.play().then(() => {
+        if (!danceRequested.current) player.pause();
+      }).catch(() => {
+        if (danceRequested.current) setMusicError(true);
+      });
+    }
+  }
   return (
     <section className="globe-experience" aria-labelledby="globe-heading">
       <div className={`keepsake-globe ${dancing ? "is-dancing" : ""}`}>
@@ -187,7 +229,7 @@ export function DancingGlobe() {
           <button
             className="button button-ink"
             aria-pressed={dancing}
-            onClick={() => setDancing(!dancing)}
+            onClick={toggleDance}
           >
             {dancing ? "Pause the dance" : "Let them dance"}{" "}
             <span aria-hidden="true">{dancing ? "Ⅱ" : "♡"}</span>
@@ -199,6 +241,35 @@ export function DancingGlobe() {
             Shake the globe <span aria-hidden="true">✧</span>
           </button>
         </div>
+        {music && (
+          <div className="globe-music">
+            <audio
+              ref={audio}
+              src={music.file}
+              preload="none"
+              muted={muted}
+              aria-label={`${music.title} by ${music.artist}`}
+              onError={() => setMusicError(true)}
+              onEnded={() => {
+                danceRequested.current = false;
+                setDancing(false);
+              }}
+            />
+            <p className="globe-song-credit">♪ {music.title} · {music.artist}</p>
+            <div className="globe-sound-controls">
+              <button className="underlined-link" aria-pressed={muted} onClick={() => setMuted(!muted)}>
+                {muted ? "Unmute song" : "Mute song"}
+              </button>
+              <label>
+                Volume
+                <input type="range" min="0" max="1" step="0.05" defaultValue="0.45" aria-label="Song volume" onChange={(e) => {
+                  if (audio.current) audio.current.volume = Number(e.target.value);
+                }} />
+              </label>
+            </div>
+            {musicError && <p role="status">The song couldn’t play. The little dance can still go on.</p>}
+          </div>
+        )}
         <p className="globe-status script" aria-live="polite">
           {dancing
             ? "A tiny dance. An enormous birthday wish."

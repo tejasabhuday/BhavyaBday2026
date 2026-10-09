@@ -5,4 +5,6 @@
 - Cormorant Garamond, DM Sans and Caveat: locally bundled Fontsource fonts, SIL Open Font License 1.1. Licence copies are in `licenses/`.
 - Film names identify aesthetic inspirations: K3G, 10 Things I Hate About You, How to Lose a Guy in 10 Days, Jab We Met, Om Shanti Om and 50 First Dates. No copied studio posters, logos, film frames, dialogue audio or soundtracks. No film-information or trailer links. Notting Hill is not included.
 - Personal nicknames and the memories inside the retained letter were provided by the gift creator. Other birthday wording is editable and does not invent additional events, achievements, ages or locations.
-- Personal photos and videos: supplied by the gift creator in `Phtos&VideosBhavya.zip` for this website. Deployed selections are documented in `MEDIA_SELECTION.md`: 19 distinct photographs filling 22 slots and four candid clips. Only optimized selected derivatives are committed; untouched originals and unused media stay outside the public root.
+- Personal photos and videos: supplied by the gift creator in `Phtos&VideosBhavya.zip` for this website. Deployed selections are documented in `MEDIA_SELECTION.md`: 22 distinct photographs filling 22 slots and four candid clips. Only optimized selected derivatives are committed; untouched originals and unused media stay outside the public root.
+
+- Globe soundtrack: no song audio is bundled yet. The configured choice is “Feels Like Home” by Chantal Kreviazuk. Song playback controls are ready for a supplied permitted MP3; no film audio has been copied or fabricated.

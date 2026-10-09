@@ -35,7 +35,7 @@ Finite homepage title/art arrivals, a few star winks, scrapbook paper/page movem
 
 ## Media checklist and import
 
-**[MEDIA_REQUEST.md](MEDIA_REQUEST.md)** is the complete checklist: 10 independent scrapbook photo slots, 3 present-day portrait slots, 5 childhood slots and 4 adventure slots. Photos can be reused; 22 slots do not require 22 different originals. Four selected candid videos are supplied in her album. The globe needs no uploaded photo/video. All 22 photo slots are now supplied from the uploaded archive; see [MEDIA_SELECTION.md](MEDIA_SELECTION.md) for exact selections.
+**[MEDIA_REQUEST.md](MEDIA_REQUEST.md)** is the complete checklist: 10 independent scrapbook photo slots, 3 present-day portrait slots, 5 childhood slots and 4 adventure slots. All 22 slots now use distinct originals; the scrapbook cover previews its page photos and the homepage portrait also opens the present-day album. Four selected candid videos are supplied in her album. The globe needs no uploaded photo/video. All 22 photo slots are now supplied from the uploaded archive; see [MEDIA_SELECTION.md](MEDIA_SELECTION.md) for exact selections.
 
 ```sh
 npm run media:prepare -- /absolute/path/to/approved-photos
@@ -58,3 +58,5 @@ No standalone screening room is needed. If candid clips arrive, a small on-deman
 Deploy as Next.js on the existing Vercel project (`https://bhavya-bday2026.vercel.app`), Node 24, `npm ci`, `npm run build`. If connected to `main`, pushing triggers the project's configured build; a push is not proof of Vercel completion. No required backend or credentials. `SITE_URL` is optional social metadata.
 
 Bundled licensed fonts need no external font requests. There are no external movie links, embeds, trackers or analytics. The chapter passport is stored only in this browser. `noindex` metadata and headers reduce indexing; enable Vercel deployment protection for actual access control. See [ASSET_CREDITS.md](ASSET_CREDITS.md). Images are optimized WebP and video files are fetched only after a visitor selects a clip.
+
+Globe soundtrack support: place an approved MP3 at `public/media/audio/globe-song.mp3`, update `src/data/globe-music.json` if choosing a different song, and rebuild. Playback starts only with the dance button, pauses with the dance or when leaving/hiding the page, and stops the dance when the song ends. Mute and volume controls appear only when the file is supplied. No song file is bundled yet.

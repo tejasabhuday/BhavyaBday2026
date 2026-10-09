@@ -6,13 +6,9 @@ export const films = [
     year: "2001",
     mood: "All the drama",
     theme: "k3g",
-    line: "A little glamour. A lot of feeling.",
-    personal:
-      "For a birthday that deserves an entrance, an outfit, and absolutely no underplaying it.",
-    inspiration: "Jewel tones, grand entrances, and Poo-level confidence.",
-    resource: "https://en.wikipedia.org/wiki/Kabhi_Khushi_Kabhie_Gham...",
-    trailerSearch:
-      "Kabhi Khushi Kabhie Gham official trailer Dharma Productions",
+    line: "Poo-level confidence. Bhavya-level fabulous.",
+    dedication:
+      "A grand entrance, a fabulous outfit, and absolutely no apology for taking up the spotlight. Birthday-girl privileges.",
   },
   {
     id: "ten-things",
@@ -21,13 +17,9 @@ export const films = [
     year: "1999",
     mood: "A little mischief",
     theme: "teen",
-    line: "The notebook has a confession.",
-    personal:
-      "I borrowed the list idea. Then I changed the important part: every single thing here is something I love.",
-    inspiration:
-      "Notebook margins, scribbled hearts, and a little teen-rom-com attitude.",
-    resource: "https://en.wikipedia.org/wiki/10_Things_I_Hate_About_You",
-    trailerSearch: "10 Things I Hate About You official trailer",
+    line: "Ten pages. Zero complaints. All love.",
+    dedication:
+      "A little notebook attitude for the girl with a thousand expressions. Every scribbled heart in the margins belongs to you.",
   },
   {
     id: "ten-days",
@@ -36,13 +28,9 @@ export const films = [
     year: "2003",
     mood: "A little mischief",
     theme: "yellow",
-    line: "The yellow-dress kind of energy.",
-    personal:
-      "The sunshine palette was too good to leave out. The girl at the centre of this story is you.",
-    inspiration:
-      "Butter yellow, magazine-cover typography, and a cheeky editorial voice.",
-    resource: "https://en.wikipedia.org/wiki/How_to_Lose_a_Guy_in_10_Days",
-    trailerSearch: "How to Lose a Guy in 10 Days official trailer Paramount",
+    line: "Sunshine, glamour, and the leading lady.",
+    dedication:
+      "Yellow-dress energy without a dress code. You bring the sunshine; the whole poster rearranges itself around you.",
   },
   {
     id: "jab-we-met",
@@ -51,13 +39,9 @@ export const films = [
     year: "2007",
     mood: "Take the scenic route",
     theme: "train",
-    line: "A detour worth taking.",
-    personal:
-      "For the little adventures I’d love to have with you. Especially the ones that don’t go to plan.",
-    inspiration:
-      "Train-ticket details, travel postcards, and warm, spontaneous color.",
-    resource: "https://en.wikipedia.org/wiki/Jab_We_Met",
-    trailerSearch: "Jab We Met official trailer",
+    line: "A whole world of beautiful detours.",
+    dedication:
+      "For the girl with more chapters to discover. May the next stop be lovely, the view be beautiful, and the story be entirely yours.",
   },
   {
     id: "om-shanti-om",
@@ -66,27 +50,19 @@ export const films = [
     year: "2007",
     mood: "All the drama",
     theme: "spotlight",
-    line: "Cue the spotlight.",
-    personal:
-      "An entire birthday premiere felt appropriate. Some people deserve the full opening credits.",
-    inspiration:
-      "Marquee bulbs, theatrical red, and a star-studded title sequence.",
-    resource: "https://en.wikipedia.org/wiki/Om_Shanti_Om",
-    trailerSearch: "Om Shanti Om official trailer Red Chillies",
+    line: "The spotlight already knows your name.",
+    dedication:
+      "A birthday this special deserves the full premiere. Lights, a little drama, and a standing ovation for twenty-one years of Bhavya.",
   },
   {
-    id: "notting-hill",
-    title: "Notting Hill",
-    short: "Notting Hill",
-    year: "1999",
+    id: "fifty-first-dates",
+    title: "50 First Dates",
+    short: "50 first dates",
+    year: "2004",
     mood: "Soft & sweet",
-    theme: "bookshop",
-    line: "The lovely little ordinary bits.",
-    personal:
-      "Not every good scene needs a grand gesture. Some just need a little time together.",
-    inspiration:
-      "Bookshop blue, soft paper, and handwritten notes in the margins.",
-    resource: "https://en.wikipedia.org/wiki/Notting_Hill_(film)",
-    trailerSearch: "Notting Hill official trailer Universal",
+    theme: "sunset",
+    line: "Lovely enough to fall for, over and over.",
+    dedication:
+      "An entirely unreasonable number of butterflies. Because a girl like you doesn’t stop being wonderful after the first close-up.",
   },
 ] as const;

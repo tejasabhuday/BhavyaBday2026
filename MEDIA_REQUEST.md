@@ -1,44 +1,87 @@
-# The photos and videos to send
+# Complete media checklist — Bhavya’s 21st birthday
 
-Send these as separate uploads or one ZIP. Only include files you want on her birthday website. Keep original quality; I’ll optimize dimensions and file sizes without changing faces or cropping them. No need to have every item: the pages already have original artwork when an asset is absent.
+The birthday story is now primarily about **her**. Shared memories are kept in your letter. There are **22 photo slots**: 10 scrapbook photos, 3 present-day portraits, 5 childhood photos and 4 adventure photos. This does **not** mean 22 different photographs: reuse a favourite across the hero, a scrapbook page and the album if you like. Send only the selected files you want used on the website, with a quick note explaining replacements. Files marked “reference only” will not be published.
 
-## The three most personal photos (highest priority)
+## 1. The ten scrapbook pages — highest priority
 
-1. **`first-meeting.jpg`** — a photo from the first meeting, a photo of the two of you around that time, or a photo of the bicycle connected to that day. Say which it is; I won’t label a later photo as the actual first meeting.
-2. **`movie-night.jpg`** — a long-distance movie-night screenshot/photo. Crop or redact phone numbers, notifications, private chat messages and other contacts before sending. Don’t include copyrighted film frames as the main image.
-3. **`ordinary-day.jpg`** — a natural everyday photo of her that you love. No special outfit or pose required.
+Each is an actual page at `/love-notes/1` through `/love-notes/10`. Each has its own full-proportion photo frame, handwritten note and page-turn navigation.
 
-## Her photographs (12 more, maximum 15 first batch)
+| Filename / slot | Page | What to send |
+| --- | --- | --- |
+| `love-01.jpg` | Your smile | Her favourite natural smiling photo. Can reuse `smile.jpg`. |
+| `love-02.jpg` | Those expressions | A funny expression, cheeky candid or playful pose. Can reuse `expressions.jpg`. |
+| `love-03.jpg` | Your kind of beautiful | Your favourite portrait of her. Can reuse the homepage portrait. |
+| `love-04.jpg` | Your everyday magic | An ordinary-day photo: casual, unposed, just her being herself. |
+| `love-05.jpg` | The little mischief | A goofy pose, laughing candid or a moment showing her not-so-serious side. |
+| `love-06.jpg` | Your effortless style | Her favourite outfit photo, festive look or dressed-up portrait. |
+| `love-07.jpg` | Little you | One childhood photo; can reuse one from the childhood album. |
+| `love-08.jpg` | Your sense of adventure | A travel/outdoor photo; can reuse one from the adventure album. |
+| `love-09.jpg` | All your possibilities | A recent photo that feels like her next chapter: confident, happy, relaxed, or one she loves. No graduation/achievement assumed. |
+| `love-10.jpg` | Simply being Bhavya | Your absolute favourite “this is so her” photograph. A second smile or a favourite candid is perfect. |
 
-4. **`hero.jpg`** — the favourite portrait you want on the home page. Ideally uncropped vertical, with head and shoulders safely in frame. Existing requested equivalent: `PHOTO-2026-10-08-12-17-45 11.jpg` (mint festive portrait); the café alternative is `PHOTO-2026-10-08-12-17-45 18.jpg`. Tell me which to use.
-5. **`expressions.jpg`** — one playful expression (`PHOTO-2026-10-08-12-17-45 2.jpg`).
-6. **`smile.jpg`** — your favourite smiling photo (`PHOTO-2026-10-08-12-17-45 17.jpg`).
-7–11. **Five childhood photos**: `hats.jpg`, `peace.jpg`, `coconut.jpg`, `tradition.jpg`, `outing.jpg`. Existing equivalents: `PHOTO-2026-10-08-12-28-42 5.jpg`, `14.jpg`, `2.jpg`, `9.jpg`, `16.jpg` (the full shared prefix applies to each). Four are fine if you prefer fewer. No family identities, ages or dates will be invented.
-12–15. **Four adventure photos**: `beach.jpg`, `gallery.jpg`, `mountains.jpg`, `forest.jpg`. Existing equivalents: `PHOTO-2026-10-08-12-17-45 7.jpg`, `8.jpg`, `9.jpg`, `12.jpg`.
+No artificial face changes, no retouching, no fake clothing. Photos stay fully in frame with `contain`; decoration stays around the photo, not over her face.
 
-Semantic filenames above and the complete original filenames in `src/data/media-manifest.json` both work with the import script. If a new photo replaces an old one, tell me the slot and I’ll update its alt text to match the actual photograph.
+## 2. Homepage and present-day album — three slots
 
-## Video: 2–4 clips to start
+| Semantic filename | Suggested original, if available | Use |
+| --- | --- | --- |
+| `hero.jpg` | `PHOTO-2026-10-08-12-17-45 11.jpg` | Homepage hero: mint festive portrait. Café alternative: `PHOTO-2026-10-08-12-17-45 18.jpg`; tell me if you prefer that. |
+| `expressions.jpg` | `PHOTO-2026-10-08-12-17-45 2.jpg` | Her playful expression in the album. |
+| `smile.jpg` | `PHOTO-2026-10-08-12-17-45 17.jpg` | Favourite smiling photo in the album. |
 
-- **`dandelion.mp4`** — her green-hills moment. Existing source: `VIDEO-2026-10-08-12-13-40.mp4`.
-- **`scenic.mp4`** — a candid, scenic clip. Existing source: `VIDEO-2026-10-08-12-13-40 9.mp4`.
-- **`movie-night.mp4`** — optional 10–30 second clip of a late-night call or the two of you saying hello. Hide contacts/private messages. Avoid a recording of the movie itself.
-- **`hello.mp4`** — optional birthday message from you to her, in your own voice. Keep the entire message; there’s no forced length limit. I can use a longer file, too.
-- **Birthday film** — send the completed MP4 or its real approved HTTPS viewing URL when ready. This is separate from the small clips; it gets its own feature CTA.
+You can nominate a new photo for any slot instead. These three may reuse scrapbook photos; you do not need duplicates from your camera roll.
 
-For new videos, tell me what each contains and which slot it should use. If the source is MOV, upload it as-is and I’ll convert it without trimming or changing the message. For spoken clips, a transcript you’ve checked makes it possible to add accurate captions. Captions won’t be guessed.
+## 3. Childhood album — five slots
 
-## Your words
+| Semantic filename | Complete suggested original filename | Description |
+| --- | --- | --- |
+| `hats.jpg` | `PHOTO-2026-10-08-12-28-42 5.jpg` | Colourful childhood hats |
+| `peace.jpg` | `PHOTO-2026-10-08-12-28-42 14.jpg` | Playful peace sign |
+| `coconut.jpg` | `PHOTO-2026-10-08-12-28-42 2.jpg` | Coconut drink |
+| `tradition.jpg` | `PHOTO-2026-10-08-12-28-42 9.jpg` | Childhood traditional outfit |
+| `outing.jpg` | `PHOTO-2026-10-08-12-28-42 16.jpg` | Childhood outing |
 
-Already included: her 21st birthday; beautiful baingan, Chunnilal, my everything; the first meeting after cycling 10 km; late-night long-distance movie nights; loving her on an ordinary day.
+Four or five favourites are enough. If you choose fewer, tell me which slots to hide. Dates, ages and family identities will not be guessed.
 
-Optional: your name for the signature, a nickname she calls you, and a short phrase you actually say to her. The current signature is “Yours, with all my love.”
+## 4. Adventure album — four slots
 
-## Approval and import
+| Semantic filename | Complete suggested original filename | Description |
+| --- | --- | --- |
+| `beach.jpg` | `PHOTO-2026-10-08-12-17-45 7.jpg` | Beach / white outfit |
+| `gallery.jpg` | `PHOTO-2026-10-08-12-17-45 8.jpg` | Art gallery / red outfit |
+| `mountains.jpg` | `PHOTO-2026-10-08-12-17-45 9.jpg` | Mountain view |
+| `forest.jpg` | `PHOTO-2026-10-08-12-17-45 12.jpg` | Forest pose |
 
-Uploading a chosen file for use in this website approves that selected use; tell me if an upload is reference-only. Personal greetings from other people remain excluded until you confirm they approve being shown on the shareable site. I won’t upload your whole camera roll or unselected wish videos. The website has no analytics. Enable Vercel deployment protection before sharing if the memories should be access-controlled.
+New adventure photos are welcome in place of these. Caption and alt text will be checked against the actual selected photograph.
 
-For an approved ZIP/folder:
+## 5. Videos — optional, within her memory book
+
+There is **no screening-room page**. A supplied candid clip appears as a small on-demand “Her little moving moments” section inside the memory book. If no clips are supplied, that section stays hidden.
+
+| Filename / slot | Suggested original | What to send |
+| --- | --- | --- |
+| `dandelion.mp4` (or `.mov`) | `VIDEO-2026-10-08-12-13-40.mp4` | Her candid moment in the green hills |
+| `scenic.mp4` (or `.mov`) | `VIDEO-2026-10-08-12-13-40 9.mp4` | Another outdoor/scenic candid of her |
+
+For a different new clip, tell me which slot it replaces. Upload original quality, not a screen recording of a film. Full duration and native audio are preserved. A spoken clip needs a transcript you have reviewed before I add captions; no captions will be invented. If other people appear or speak, confirm they approve this selected use.
+
+Optional **full birthday film**: send the completed file or the real approved HTTPS viewing URL. If configured, it gets a small link in the memory book, not a separate screening room. No invented film URL appears.
+
+## 6. Dancing globe — no photo or video required
+
+The `/a-little-magic` page already includes an original glass keepsake globe with a dancing couple: black suit, yellow dress, gold stars. Dance/pause, shake-the-globe, and 21 birthday-wish interactions are built in. The couple is a stylised illustration, not a generated portrait or face swap. Nothing personal is needed to make it work.
+
+There is no default music. If you want a soundtrack later, send a track you have permission to use; it must start only after a deliberate visitor action. Do not send copyrighted film soundtracks as assumed background music.
+
+## 7. Optional personal wording
+
+The existing letter is retained. The site already knows her 21st birthday, “beautiful baingan,” “Chunnilal,” and “my everything.” Optional: your signature name, her favourite short phrase, an approved inside joke about her, or a wording change to the letter. The cycle ride and long-distance memories stay in the letter instead of dominating the birthday pages.
+
+## Upload and handling
+
+A single ZIP is easiest, or upload files individually. Use the semantic filenames above, or keep originals and tell me the slot mapping. Where a photo is reused, say e.g. **“Use this for hero + love-03 + love-10.”** Do not send extra unselected camera-roll files. Crop/redact private contact details and notifications before uploading screenshots.
+
+Only approved selected derivatives go into `public/media/`. Raw sources remain outside the public web root. The media allowlist is `src/data/media-manifest.json`. Originals are untouched. Images are resized to WebP, videos to H.264/AAC with posters; rebuild after adding media. Until then, intentional original artwork keeps the site complete without broken images.
 
 ```sh
 npm run media:prepare -- /absolute/path/to/approved-photos
@@ -47,4 +90,4 @@ npm run media:audit
 npm run build
 ```
 
-Only allowlisted files are processed. Original sources stay outside the web root. Public derivatives are ignored by Git until deliberately selected for a deployment. Each selected photo keeps its proportions; the site uses contain, not a face crop.
+A share URL and noindex are not access controls. Enable Vercel deployment protection if these memories should require authorised viewing.

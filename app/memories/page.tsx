@@ -1,32 +1,49 @@
+import { siteContent } from "@/src/data/siteContent";
 import type { Metadata } from "next";
 import { PageIntro, PageTurn } from "@/components/PageFrame";
 import { MemoryBook } from "@/components/MemoryBook";
-import { FutureScenes } from "@/components/Surprises";
-import { availablePhotos } from "@/src/data/media.server";
-export const metadata: Metadata = { title: "The memory book" };
+import { BirthdayDreams } from "@/components/BirthdayDreams";
+import { CandidMoments } from "@/components/CandidMoments";
+import { availablePhotos, availableVideos } from "@/src/data/media.server";
+export const metadata: Metadata = { title: "The Bhavya memory book" };
 export default function MemoriesPage() {
   return (
     <main id="main" className="memories-page">
       <div className="page-width">
         <PageIntro
           number="03"
-          kicker="MY FAVOURITE KIND OF REWATCH"
-          title="I’d keep every"
-          italic="little moment."
-          description="The first meeting. The late-night calls. An ordinary day with you. None of it feels ordinary to me."
+          kicker="EVERY VERSION OF THE BIRTHDAY GIRL"
+          title="Little you."
+          italic="Wonderful you."
+          description="The childhood mischief. The adventures. The everyday smiles. A little album of the girl this birthday is all about."
         />
         <div className="memory-prologue">
-          <span className="script">10 km. One cycle. You.</span>
+          <span className="script">Twenty-one years of lovely.</span>
           <p>
-            I came on a cycle to meet you for the first time. Ten kilometres,
-            and somewhere in that first meeting I knew: you were all I wanted.
+            Some moments are tiny. Some are a whole adventure. Every one is
+            another little piece of Bhavya’s story.
           </p>
         </div>
         <MemoryBook available={availablePhotos()} />
-        <FutureScenes />
+        <CandidMoments items={availableVideos()} />
+        <BirthdayDreams />
+        {siteContent.movieUrl && (
+          <section className="birthday-feature-link">
+            <span className="tiny-label">HER BIRTHDAY FEATURE</span>
+            <h2>A film full of Bhavya.</h2>
+            <a
+              className="button button-ink"
+              href={siteContent.movieUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Watch the birthday film →
+            </a>
+          </section>
+        )}
         <PageTurn
           next={3}
-          aside="Different places. The same favourite person."
+          aside="So many lovely chapters. So many more to come."
         />
       </div>
     </main>

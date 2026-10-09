@@ -23,14 +23,13 @@ export default function Home() {
               Twenty-one, <span className="script">beautiful baingan.</span>
             </p>
             <h1>
-              You, in
+              Bhavya,
               <br />
-              every <em>universe.</em>
+              in full <em>bloom.</em>
             </h1>
             <p className="home-dedication">
               {siteContent.dedication}
-              <br />
-              So here’s a whole little world. Just for you.
+              <br />A birthday world as bright as its leading lady.
             </p>
             <Link className="button button-ink" href="/love-notes">
               Let me count the ways <span>→</span>
@@ -96,11 +95,11 @@ export default function Home() {
         <ChapterPassport />
       </section>
       <section className="home-postscript">
-        <p className="script">P.S. There isn’t a film I’d rather watch.</p>
+        <p className="script">P.S. Twenty-one looks beautiful on you.</p>
         <h2>
-          It’s always
+          Her favourite colours.
           <br />
-          <em>going to be you.</em>
+          <em>Her kind of magic.</em>
         </h2>
         <Link href="/letter" className="underlined-link">
           I wrote you something →

@@ -8,16 +8,13 @@ export default function RomComsPage() {
       <div className="page-width">
         <PageIntro
           number="04"
-          kicker="FOR THE LATE-NIGHT MOVIE NIGHTS"
+          kicker="HER BIRTHDAY. THE ROM-COM CUT."
           title="A little cinema."
           italic="A lot of you."
-          description="The distance hasn’t stopped movie night. Here’s a shelf of big feelings, beautiful chaos, and films I’d happily watch with you."
+          description="A little Poo-level confidence. A little sunshine. A little beautiful chaos. Six cinematic moods, one very special birthday girl."
         />
         <FilmShelf />
-        <PageTurn
-          next={4}
-          aside="My favourite love story doesn’t need a screen."
-        />
+        <PageTurn next={4} aside="The birthday girl gets every close-up." />
       </div>
     </main>
   );

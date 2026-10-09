@@ -1,57 +1,41 @@
-# For Bhavya. With love.
+# For Bhavya — the twenty-first birthday cut
 
-A personal, six-page 21st birthday website for beautiful baingan, Chunnilal, my everything. Next.js App Router, React, TypeScript, Tailwind and Motion. Original cinema-inspired artwork, bundled licensed fonts, and real memories: the first meeting after a 10 km cycle ride, late-night movie nights across the distance, and her on an ordinary day.
+A bright pink-and-yellow birthday website that centres **Bhavya**: her smile, expressions, style, childhood, adventures, and the next chapter of her life. The personal letter keeps the relationship memories; they no longer dominate the album and love notes.
 
 ## Pages
 
-| Route | Experience |
-| --- | --- |
-| `/` | Yellow editorial premiere, illustrated birthday collage, a tiny secret, chapter directory and passport |
-| `/love-notes` | Ten expandable personal notes, open-all/fold-all, and four “open when” letters |
-| `/memories` | Four album filters, full-proportion photo frames and a locally saved future-scenes list |
-| `/rom-coms` | Six original film-inspired covers, mood filters, film resources and a movie-night picker |
-| `/letter` | Personal letter, the 21st birthday wish and reversible birthday candles |
-| `/screening-room` | User-controlled, initially muted clips, pause/switch controls, and a real-film CTA only when supplied |
+- `/`: a sunshine-yellow premiere and pink birthday chapter cards.
+- `/love-notes`: a scrapbook cover and table of contents.
+- `/love-notes/1` through `/love-notes/10`: **ten independent scrapbook pages**, each with an approved-photo slot, two handwritten-style notes, page tabs, and previous/next navigation.
+- `/memories`: her portraits, childhood and adventure albums, birthday wishes, and optional approved candid clips. No couple-album tab.
+- `/rom-coms`: K3G, 10 Things I Hate About You, How to Lose a Guy in 10 Days, Jab We Met, Om Shanti Om and **50 First Dates**. Original covers and birthday dedications, no movie-information/trailer links. Notting Hill removed.
+- `/letter`: the existing letter inside an animated, native HTML opening scroll. It opens with keyboard, mouse or without JavaScript.
+- `/a-little-magic`: a glass keepsake globe with an original black-suit/yellow-dress dancing couple, play/pause, shake-the-globe and 21 birthday wishes.
 
-Mobile has a keyboard-accessible chapter menu. All routes can be opened directly and have metadata, active navigation and next-page links. The old `/#poster` link still lands on the new home hero. No page is locked behind a loader, intro or forced playback.
+The former `/screening-room` permanently redirects to the globe; its page and player are removed. The original `/#poster` bookmark still lands on the homepage hero.
 
-## Run
+## Run and check
 
-Node.js 24 and npm 11 were used in cloud. Use the existing checkout; cloud tasks are already isolated and do not need another worktree.
+Node 24, npm 11, Next.js App Router, React, TypeScript, Tailwind and Motion. Use the existing checkout; cloud tasks are isolated and do not need an additional worktree.
 
 ```sh
-npm ci --cache /workspace/.npm-cache # outside cloud, use npm ci with your normal cache
+npm ci --cache /workspace/.npm-cache # outside cloud, use your normal cache
 npm run dev
-```
-
-Production: `npm run build`, then `npm run start`. No backend or secrets. `SITE_URL` is optional and only sets metadata; it defaults to the supplied Vercel URL. Fonts are bundled from Fontsource, not requested from Google at runtime.
-
-## Check
-
-```sh
 npm run lint
 npm run typecheck
-npm run media:audit
 npm run build
 npm test
 ```
 
-Playwright starts a fresh production server on port 3100 and checks all six routes at 360×800 and 1440×900, horizontal overflow, navigation, local chapter stamps, keyboard notes, album filters, locally saved picks, rom-com filters, the 21st birthday letter, candle interaction, reduced motion, no-JavaScript letter rendering, and the missing-media state. All twelve page screenshots are saved under ignored `test-results/`. For browsers outside this cloud image, run `npx playwright install chromium`; set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` if using a system browser.
+`npm run start` runs a production build. Playwright starts its own fresh server on port 3100 and exercises mobile 360×800 and desktop 1440×900. It checks all sixteen content routes, scrapbook photos/navigation, her album filters, film selection/removals, the scroll with/without JS, dance/pause/shake, 21 wishes, reduced motion, and the legacy redirect. Screenshots are written to ignored `test-results/`. Outside cloud, install Chromium with `npx playwright install chromium`; a custom system binary can be selected with `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
-When approved clips exist, the playback test also verifies paused/muted/no-autoplay startup, keyboard play, pause, pausing before switching, and a failed-video fallback. Temporary plain-color fixtures can validate this before personal clips arrive; they are not gifts or public assets.
+## Animation and accessibility
 
-## Personalise
+Finite homepage title/art arrivals, a few star winks, scrapbook paper/page movement, hover doodles, opening dedications and scroll unfurling add motion. The globe dances only after a deliberate click and has a pause control. Shake particles are finite. All animations respect `prefers-reduced-motion`; the globe stays static under that preference. Nothing autoplays audio. Important copy remains readable and every chapter remains directly browsable.
 
-- `src/data/siteContent.ts`: nickname, first-person dedication, ten confessions, letter, open-when notes, future scene ideas, signature and the real `movieUrl`.
-- `src/data/media-manifest.json`: single allowlist of fifteen photo slots, source mapping, honest descriptions and captions.
-- `src/data/media.ts`: approved clips and the deliberately empty optional personal-wishes list.
-- `src/data/films.ts`: six movie inspirations and resource links. Covers are original illustrations, not downloaded posters. “Find the official trailer” opens a labelled YouTube search; it does not claim an unverified video is official.
+## Media checklist and import
 
-Narrative copy speaks from “I” to “you.” The word “We” appears only inside the actual film title **Jab We Met**. Nothing pretends to be a quote from somebody else.
-
-## Add the approved media
-
-See **[MEDIA_REQUEST.md](MEDIA_REQUEST.md)** for the exact photo/video list. Only the markdown brief has been supplied so far; no personal media is included in this repository. Artwork intentionally fills missing scenes. The highest-priority photos are the hero portrait, first-meeting memory, long-distance movie night and an ordinary-day photo.
+**[MEDIA_REQUEST.md](MEDIA_REQUEST.md)** is the complete checklist: 10 independent scrapbook photo slots, 3 present-day portrait slots, 5 childhood slots and 4 adventure slots. Photos can be reused; 22 slots do not require 22 different originals. Two candid videos are optional in her album. The globe needs no uploaded photo/video. No personal media has been supplied yet; original artwork deliberately fills the missing frames.
 
 ```sh
 npm run media:prepare -- /absolute/path/to/approved-photos
@@ -60,14 +44,17 @@ npm run media:audit
 npm run build
 ```
 
-Photo imports accept the original manifest filenames or semantic `<slot>.jpg` aliases. Sharp preserves the complete image proportions, applies EXIF orientation and outputs optimized WebP. No facial edits, beauty filters or cropping. Video imports need ffmpeg and accept manifest filenames or `<slot>.mp4`/`<slot>.mov`; H.264/AAC outputs preserve the full duration, proportions and native audio, with a JPEG poster. Supply a reviewed `<slot>.vtt` for speech captions. MOV source copies stay untouched.
+Photo source mappings are centralized in `src/data/media-manifest.json`. Semantic `<slot>.jpg` aliases and exact manifest originals work. Sharp creates proportion-preserving WebP; every site image uses contain, with no face crops, retouching or generated faces. ffmpeg creates H.264/AAC clips and posters while preserving duration and native audio. Reviewed `<slot>.vtt` files supply captions. Raw media stays outside the web root; public derivatives are ignored by Git until explicitly approved. Media is discovered at build time, so rebuild after adding files.
 
-Media availability is discovered **at build time**. Rebuild after adding media. Public derivatives are ignored by Git until explicitly approved for a deploy; raw originals belong outside the public web root. A personal greeting from someone else should only be added after their approval. The site doesn’t require greeting videos to work.
+No standalone screening room is needed. If candid clips arrive, a small on-demand section appears in the memory book; without clips it stays hidden. The full birthday-film link is optional through `siteContent.movieUrl`, and absent links do not create a fake CTA. Other people's wishes require their approval before inclusion.
 
-## Deployment
+## Editing and deployment
 
-The existing site is `https://bhavya-bday2026.vercel.app`. If the Vercel project is connected to this repository’s `main` branch, a pushed commit triggers its configured deployment. A Git push alone does not establish that Vercel completed the build. To deploy manually, import this repository as Next.js, Node 24, install `npm ci`, build `npm run build`. All six routes are prerendered; use a Next-compatible host for bundled fonts, image optimization and routing.
+- `src/data/siteContent.ts`: her 21st birthday, ten expanded notes, unchanged personal letter, nicknames, signature, optional film URL and chapters.
+- `src/data/films.ts`: the six original film-inspired moods and birthday dedications.
+- `components/DancingGlobe.tsx`: fictional, faceless SVG couple and glass globe, not personal-photo manipulation.
+- `components/BirthdayWishJar.tsx`: 21 extra birthday wishes.
 
-There is no analytics, tracking, social embed, background audio or automatic video fetch. The passport and future list use this browser’s localStorage only; nothing is sent to me or a server. The website requests only same-origin assets during normal browsing. Movie resource destinations are contacted only when their links are clicked. `robots` metadata and `X-Robots-Tag` disable indexing. For access-controlled viewing, enable Vercel deployment protection: a secret URL and noindex alone are not private access controls.
+Deploy as Next.js on the existing Vercel project (`https://bhavya-bday2026.vercel.app`), Node 24, `npm ci`, `npm run build`. If connected to `main`, pushing triggers the project's configured build; a push is not proof of Vercel completion. No required backend or credentials. `SITE_URL` is optional social metadata.
 
-See [ASSET_CREDITS.md](ASSET_CREDITS.md) for artwork, font licences and film-resource provenance. Live performance with the actual media remains to be measured after the approved files arrive.
+Bundled licensed fonts need no external font requests. There are no external movie links, embeds, trackers or analytics. The chapter passport is stored only in this browser. `noindex` metadata and headers reduce indexing; enable Vercel deployment protection for actual access control. See [ASSET_CREDITS.md](ASSET_CREDITS.md). Performance with the eventual personal media remains to be checked after upload.

@@ -108,30 +108,93 @@
     "artLabel": "A breath of fresh air."
   },
   {
-    "id": "first-meeting",
-    "source": "first-meeting.jpg",
-    "group": "together",
-    "caption": "10 km. One cycle. You.",
-    "alt": "An approved photograph connected to the first meeting",
-    "note": "I cycled ten kilometres to meet you. Then I knew you were all I wanted.",
-    "artLabel": "The beginning of my favourite story."
+    "id": "love-01",
+    "source": "love-01.jpg",
+    "group": "scrapbook",
+    "caption": "Your smile.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 1: your smile.",
+    "note": "A smile like yours should come with a warning: may cause butterflies, terrible concentration, and an unreasonable amount of staring.",
+    "artLabel": "Page 01. All about you."
   },
   {
-    "id": "movie-night",
-    "source": "movie-night.jpg",
-    "group": "together",
-    "caption": "Same film. Two screens.",
-    "alt": "An approved photograph of a long-distance movie night",
-    "note": "The late-night movie nights are still a little way of being close, even from far away.",
-    "artLabel": "Distance doesn’t get this scene."
+    "id": "love-02",
+    "source": "love-02.jpg",
+    "group": "scrapbook",
+    "caption": "Those expressions.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 2: those expressions.",
+    "note": "One face. A thousand expressions. Every single one deserves its own close-up and a very dramatic round of applause.",
+    "artLabel": "Page 02. All about you."
   },
   {
-    "id": "ordinary-day",
-    "source": "ordinary-day.jpg",
-    "group": "together",
-    "caption": "Just you, on an ordinary day.",
-    "alt": "An approved everyday photograph of Bhavya",
-    "note": "You just existing is a beautiful memory for me. That’s the whole caption.",
-    "artLabel": "Ordinary is my favourite."
+    "id": "love-03",
+    "source": "love-03.jpg",
+    "group": "scrapbook",
+    "caption": "Your kind of beautiful.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 3: your kind of beautiful.",
+    "note": "There is pretty, and then there is you. The kind of beautiful that makes a perfectly normal day feel like someone turned the fairy lights on.",
+    "artLabel": "Page 03. All about you."
+  },
+  {
+    "id": "love-04",
+    "source": "love-04.jpg",
+    "group": "scrapbook",
+    "caption": "Your everyday magic.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 4: your everyday magic.",
+    "note": "You don’t need a special occasion, a perfect outfit, or a cinematic sunset. You just existing on a normal day is already a beautiful memory.",
+    "artLabel": "Page 04. All about you."
+  },
+  {
+    "id": "love-05",
+    "source": "love-05.jpg",
+    "group": "scrapbook",
+    "caption": "The little mischief.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 5: the little mischief.",
+    "note": "The world needs serious things. You also deserve the silly poses, the goofy moments, and the kind of laugh that ruins a perfectly composed photograph.",
+    "artLabel": "Page 05. All about you."
+  },
+  {
+    "id": "love-06",
+    "source": "love-06.jpg",
+    "group": "scrapbook",
+    "caption": "Your effortless style.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 6: your effortless style.",
+    "note": "A good outfit is a good outfit. On you, it suddenly has a plot, an entrance, and opening credits.",
+    "artLabel": "Page 06. All about you."
+  },
+  {
+    "id": "love-07",
+    "source": "love-07.jpg",
+    "group": "scrapbook",
+    "caption": "Little you.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 7: little you.",
+    "note": "The girl in those childhood photographs deserves her own fan club. Tiny scene-stealer. Already very important.",
+    "artLabel": "Page 07. All about you."
+  },
+  {
+    "id": "love-08",
+    "source": "love-08.jpg",
+    "group": "scrapbook",
+    "caption": "Your sense of adventure.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 8: your sense of adventure.",
+    "note": "A new place, a fresh view, a little curiosity. There is a whole world out there waiting for a Bhavya-shaped plot twist.",
+    "artLabel": "Page 08. All about you."
+  },
+  {
+    "id": "love-09",
+    "source": "love-09.jpg",
+    "group": "scrapbook",
+    "caption": "All your possibilities.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 9: all your possibilities.",
+    "note": "You are turning twenty-one, not reaching the end credits. There are so many versions of you still waiting to have their moment.",
+    "artLabel": "Page 09. All about you."
+  },
+  {
+    "id": "love-10",
+    "source": "love-10.jpg",
+    "group": "scrapbook",
+    "caption": "Simply being Bhavya.",
+    "alt": "Approved photograph of Bhavya for scrapbook page 10: simply being bhavya.",
+    "note": "Beautiful baingan. Chunnilal. My everything. None of those names quite manages to contain all the lovely that is you.",
+    "artLabel": "Page 10. All about you."
   }
 ]

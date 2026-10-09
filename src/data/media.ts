@@ -23,12 +23,6 @@ export const clips = [
     source: "VIDEO-2026-10-08-12-13-40 9.mp4",
     title: "Taking the scenic route",
   },
-  {
-    id: "movie-night",
-    source: "movie-night.mp4",
-    title: "Same film. Two screens. You and me.",
-  },
-  { id: "hello", source: "hello.mp4", title: "A little hello from me" },
 ];
 // Add personal wishes only after explicit approval. Keep the complete message and reviewed captions.
 export const approvedWishes: {

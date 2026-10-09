@@ -102,7 +102,7 @@ export function BirthdayStillLife() {
       </div>
       <div className="still-life-ticket">
         <span>HER 21ST BIRTHDAY</span>
-        <b>YOU + ME</b>
+        <b>BHAVYA · 21</b>
         <span>A REALLY GOOD NEXT CHAPTER</span>
       </div>
       <span className="still-life-star star-one">✳</span>

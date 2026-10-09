@@ -4,47 +4,77 @@ export const siteContent = {
   signature: "Yours, with all my love",
   nickname: "beautiful baingan",
   movieUrl: "",
-  dedication: "I made this because a birthday message didn’t feel like enough.",
+  dedication: "Twenty-one years of being wonderfully, unmistakably you.",
   loveNotes: [
     {
       title: "Your smile.",
-      note: "Even from this far away, your smile is the easiest way to make me smile. It’s unfairly effective.",
+      note: "A smile like yours should come with a warning: may cause butterflies, terrible concentration, and an unreasonable amount of staring.",
+      extra:
+        "The whole room gets prettier when you smile. Yes, that is scientifically unproven. No, I am not taking it back.",
+      photoId: "love-01",
     },
     {
-      title: "The expressions.",
-      note: "You have an expression for everything. I could give every single one its own close-up.",
+      title: "Those expressions.",
+      note: "One face. A thousand expressions. Every single one deserves its own close-up and a very dramatic round of applause.",
+      extra:
+        "The cheeky look, the little eye roll, the not-even-trying look. Beautiful baingan, you are an entire rom-com in one person.",
+      photoId: "love-02",
     },
     {
-      title: "Your very own kind of beautiful.",
-      note: "Not a movie-star kind. Not a someone-else kind. Your kind. That’s the one I love.",
+      title: "Your kind of beautiful.",
+      note: "There is pretty, and then there is you. The kind of beautiful that makes a perfectly normal day feel like someone turned the fairy lights on.",
+      extra:
+        "Dressed up or completely casual, you never need to audition for the spotlight. It already knows your name.",
+      photoId: "love-03",
     },
     {
-      title: "An ordinary day with you.",
-      note: "You just existing, even on a normal day, is a beautiful memory for me. You don’t have to do a thing.",
+      title: "Your everyday magic.",
+      note: "You don’t need a special occasion, a perfect outfit, or a cinematic sunset. You just existing on a normal day is already a beautiful memory.",
+      extra:
+        "If ordinary looks like you, I would like an unlimited supply of ordinary, please.",
+      photoId: "love-04",
     },
     {
-      title: "Beautiful baingan. Chunnilal.",
-      note: "Very serious names for the person I love very seriously. I wouldn’t change a thing.",
+      title: "The little mischief.",
+      note: "The world needs serious things. You also deserve the silly poses, the goofy moments, and the kind of laugh that ruins a perfectly composed photograph.",
+      extra:
+        "Chunnilal, being adorable and a little ridiculous is a very powerful combination. Use it irresponsibly.",
+      photoId: "love-05",
     },
     {
-      title: "Every version of you.",
-      note: "Dressed up, dressed down, having a brilliant day, having a difficult one. My love isn’t only for the highlight reel.",
+      title: "Your effortless style.",
+      note: "A good outfit is a good outfit. On you, it suddenly has a plot, an entrance, and opening credits.",
+      extra:
+        "Whatever you choose to wear, the best part is still the girl wearing it. Poo-level confidence encouraged.",
+      photoId: "love-06",
     },
     {
-      title: "Your whole story.",
-      note: "The little girl in the old photos and the person you’re becoming. Every chapter matters to me.",
+      title: "Little you.",
+      note: "The girl in those childhood photographs deserves her own fan club. Tiny scene-stealer. Already very important.",
+      extra:
+        "Every little chapter helped make the Bhavya of today. Every chapter belongs in this scrapbook.",
+      photoId: "love-07",
     },
     {
-      title: "The way you’re you.",
-      note: "No imitation, no perfect script. Just you. That’s more than enough.",
+      title: "Your sense of adventure.",
+      note: "A new place, a fresh view, a little curiosity. There is a whole world out there waiting for a Bhavya-shaped plot twist.",
+      extra:
+        "May twenty-one bring you beautiful detours, ridiculous stories, and photographs you can’t wait to keep.",
+      photoId: "love-08",
     },
     {
-      title: "Those late-night movie nights.",
-      note: "Two screens, different places, the same film. Even when you’re far away, I get to spend a little time with you.",
+      title: "All your possibilities.",
+      note: "You are turning twenty-one, not reaching the end credits. There are so many versions of you still waiting to have their moment.",
+      extra:
+        "Big dreams, small joys, wildly good surprises. The next chapter has an excellent leading lady.",
+      photoId: "love-09",
     },
     {
-      title: "Because it’s you.",
-      note: "If I ran out of clever things to say, this would still be my answer. I love you because you’re you.",
+      title: "Simply being Bhavya.",
+      note: "Beautiful baingan. Chunnilal. My everything. None of those names quite manages to contain all the lovely that is you.",
+      extra:
+        "So here is the very cheesy, very true final page: the world is better with you in it. Happy twenty-first, birthday girl.",
+      photoId: "love-10",
     },
   ],
   letter: [
@@ -69,30 +99,8 @@ export const siteContent = {
       text: "Then please consider this your standing ovation. An entirely unreasonable amount of applause, from me.",
     },
     {
-      label: "You miss me",
-      text: "Here’s a tiny piece of me you can come back to: I made every page thinking of you. I hope you can feel that.",
-    },
-  ],
-  futureScenes: [
-    {
-      id: "movie-night",
-      title: "A very serious movie night",
-      detail: "Your pick. Snacks. Zero judgement about the rewatch count.",
-    },
-    {
-      id: "long-walk",
-      title: "A walk with no agenda",
-      detail: "Nowhere important to be. A little more time together.",
-    },
-    {
-      id: "coffee",
-      title: "Coffee that turns into hours",
-      detail: "One drink, a conversation, and absolutely no rush.",
-    },
-    {
-      id: "adventure",
-      title: "A tiny adventure",
-      detail: "A new place, a camera, and a day that doesn’t need a plan.",
+      label: "You need a birthday-sized smile",
+      text: "An extremely important reminder: you are the birthday girl, the main character, and a certified beautiful baingan. Twenty-one looks very good on you.",
     },
   ],
 };
@@ -129,7 +137,7 @@ export const chapters = [
     title: "The rom-com shelf",
     short: "Rom-coms",
     number: "04",
-    description: "Pick a mood. Find a film. Plan a rewatch.",
+    description: "A little drama, a little sunshine, all Bhavya.",
     motif: "ticket",
     tone: "lilac",
   },
@@ -143,12 +151,12 @@ export const chapters = [
     tone: "rose",
   },
   {
-    href: "/screening-room",
-    title: "The screening room",
-    short: "Screening room",
+    href: "/a-little-magic",
+    title: "A little birthday magic",
+    short: "Birthday magic",
     number: "06",
-    description: "Your little moments, on the big screen.",
-    motif: "film",
-    tone: "dark",
+    description: "A dancing globe and a little wish for twenty-one.",
+    motif: "star",
+    tone: "pink",
   },
 ] as const;

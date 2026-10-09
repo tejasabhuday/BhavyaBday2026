@@ -26,15 +26,24 @@ export function useVisited() {
   const raw = useSyncExternalStore(subscribe, snapshot, serverSnapshot);
   try {
     const parsed = JSON.parse(raw);
-    return Array.isArray(parsed)
-      ? parsed.filter((p): p is string => typeof p === "string")
-      : [];
+    if (!Array.isArray(parsed)) return [];
+    return [
+      ...new Set(
+        parsed
+          .filter((p): p is string => typeof p === "string")
+          .map((p) => (p === "/screening-room" ? "/a-little-magic" : p))
+          .filter((p) => chapters.some((c) => c.href === p)),
+      ),
+    ];
   } catch {
     return [];
   }
 }
 export function Navigation() {
   const pathname = usePathname();
+  const chapterPath = pathname.startsWith("/love-notes/")
+    ? "/love-notes"
+    : pathname;
   const [menuFor, setMenuFor] = useState<string | null>(null);
   const open = menuFor === pathname;
   useEffect(() => {
@@ -42,16 +51,16 @@ export function Navigation() {
       const previous = JSON.parse(snapshot());
       const list = Array.isArray(previous) ? previous : [];
       if (
-        chapters.some((c) => c.href === pathname) &&
-        !list.includes(pathname)
+        chapters.some((c) => c.href === chapterPath) &&
+        !list.includes(chapterPath)
       ) {
-        localStorage.setItem(visitKey, JSON.stringify([...list, pathname]));
+        localStorage.setItem(visitKey, JSON.stringify([...list, chapterPath]));
         window.dispatchEvent(new Event("bhavya-visit"));
       }
     } catch {
       /* Storage is optional; browsing works without it. */
     }
-  }, [pathname]);
+  }, [chapterPath]);
   return (
     <header
       className="site-header"
@@ -70,7 +79,7 @@ export function Navigation() {
           <Link
             href={c.href}
             key={c.href}
-            aria-current={pathname === c.href ? "page" : undefined}
+            aria-current={chapterPath === c.href ? "page" : undefined}
           >
             {c.short}
           </Link>
@@ -101,7 +110,7 @@ export function Navigation() {
           <Link
             key={c.href}
             href={c.href}
-            aria-current={pathname === c.href ? "page" : undefined}
+            aria-current={chapterPath === c.href ? "page" : undefined}
             onClick={() => setMenuFor(null)}
           >
             <span>{c.number}</span>

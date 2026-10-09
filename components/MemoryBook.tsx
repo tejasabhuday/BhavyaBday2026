@@ -3,13 +3,12 @@ import { useState } from "react";
 import { photos, type Photo } from "@/src/data/media";
 import { PhotoFrame } from "./Experience";
 const categories = [
-  { id: "together", label: "My favourite scenes" },
   { id: "childhood", label: "Little you" },
   { id: "adventures", label: "Out in the world" },
   { id: "portraits", label: "Just being you" },
 ];
 export function MemoryBook({ available }: { available: string[] }) {
-  const [category, setCategory] = useState("together");
+  const [category, setCategory] = useState("portraits");
   const chosen = photos.filter((p) => p.group === category);
   return (
     <>

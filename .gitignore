@@ -1,0 +1,14 @@
+node_modules/
+.next/
+out/
+.env*
+!.env.example
+playwright-report/
+test-results/
+private-media/
+public/media/photos/*
+public/media/videos/*
+!public/media/photos/.gitkeep
+!public/media/videos/.gitkeep
+
+*.tsbuildinfo

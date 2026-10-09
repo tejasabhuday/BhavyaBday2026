@@ -11,7 +11,9 @@ if (!sourceDir) {
 }
 mkdirSync("public/media/photos", { recursive: true });
 for (const [id, source] of manifest) {
-  const input = path.join(sourceDir, source);
+  const original = path.join(sourceDir, source);
+  const alias = path.join(sourceDir, `${id}.jpg`);
+  const input = existsSync(original) ? original : alias;
   if (!existsSync(input)) {
     console.log(`Missing: ${source}`);
     continue;

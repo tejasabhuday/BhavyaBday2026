@@ -1,0 +1,137 @@
+[
+  {
+    "id": "hero",
+    "source": "PHOTO-2026-10-08-12-17-45 11.jpg",
+    "group": "portraits",
+    "caption": "My favourite leading lady",
+    "alt": "Bhavya in a mint festive outfit",
+    "note": "Beautiful baingan. No further introduction needed.",
+    "artLabel": "The girl this is all about."
+  },
+  {
+    "id": "expressions",
+    "source": "PHOTO-2026-10-08-12-17-45 2.jpg",
+    "group": "portraits",
+    "caption": "The expressions, honestly.",
+    "alt": "A playful overhead portrait of Bhavya",
+    "note": "An entire mood in one photograph.",
+    "artLabel": "A very Bhavya expression."
+  },
+  {
+    "id": "smile",
+    "source": "PHOTO-2026-10-08-12-17-45 17.jpg",
+    "group": "portraits",
+    "caption": "That smile.",
+    "alt": "Bhavya smiling on a night street",
+    "note": "My favourite kind of close-up.",
+    "artLabel": "This smile gets its own scene."
+  },
+  {
+    "id": "hats",
+    "source": "PHOTO-2026-10-08-12-28-42 5.jpg",
+    "group": "childhood",
+    "caption": "Little you. Big personality.",
+    "alt": "Childhood photograph of Bhavya wearing colorful hats",
+    "note": "I love that this is a part of your story.",
+    "artLabel": "The early years."
+  },
+  {
+    "id": "peace",
+    "source": "PHOTO-2026-10-08-12-28-42 14.jpg",
+    "group": "childhood",
+    "caption": "Already a scene-stealer.",
+    "alt": "Young Bhavya making a peace sign",
+    "note": "A little mischief in the margins.",
+    "artLabel": "A tiny star."
+  },
+  {
+    "id": "coconut",
+    "source": "PHOTO-2026-10-08-12-28-42 2.jpg",
+    "group": "childhood",
+    "caption": "A sweet little intermission.",
+    "alt": "Young Bhavya with a coconut drink",
+    "note": "Not everything needs a grand caption. Some moments are just lovely.",
+    "artLabel": "Small things. Good things."
+  },
+  {
+    "id": "tradition",
+    "source": "PHOTO-2026-10-08-12-28-42 9.jpg",
+    "group": "childhood",
+    "caption": "A little piece of your story.",
+    "alt": "Bhavya in a traditional outfit as a child",
+    "note": "Before I knew you, this chapter was already yours.",
+    "artLabel": "A moment to keep."
+  },
+  {
+    "id": "outing",
+    "source": "PHOTO-2026-10-08-12-28-42 16.jpg",
+    "group": "childhood",
+    "caption": "The little adventures.",
+    "alt": "A childhood outing with Bhavya and an adult",
+    "note": "A little glimpse of the world you grew up in.",
+    "artLabel": "Before the big adventures."
+  },
+  {
+    "id": "beach",
+    "source": "PHOTO-2026-10-08-12-17-45 7.jpg",
+    "group": "adventures",
+    "caption": "A little salt air.",
+    "alt": "Bhavya in a white outfit at the beach",
+    "note": "New place. Same favourite girl.",
+    "artLabel": "A seaside scene."
+  },
+  {
+    "id": "gallery",
+    "source": "PHOTO-2026-10-08-12-17-45 8.jpg",
+    "group": "adventures",
+    "caption": "A work of art.",
+    "alt": "Bhavya in a red outfit in an art gallery",
+    "note": "Yes, I mean you.",
+    "artLabel": "A little gallery day."
+  },
+  {
+    "id": "mountains",
+    "source": "PHOTO-2026-10-08-12-17-45 9.jpg",
+    "group": "adventures",
+    "caption": "Taking the scenic route.",
+    "alt": "Bhavya looking toward the mountains",
+    "note": "Some views deserve a little more time.",
+    "artLabel": "A different perspective."
+  },
+  {
+    "id": "forest",
+    "source": "PHOTO-2026-10-08-12-17-45 12.jpg",
+    "group": "adventures",
+    "caption": "Out in the world.",
+    "alt": "Bhavya posing in a forest",
+    "note": "There are so many more scenes still to come.",
+    "artLabel": "A breath of fresh air."
+  },
+  {
+    "id": "first-meeting",
+    "source": "first-meeting.jpg",
+    "group": "together",
+    "caption": "10 km. One cycle. You.",
+    "alt": "An approved photograph connected to the first meeting",
+    "note": "I cycled ten kilometres to meet you. Then I knew you were all I wanted.",
+    "artLabel": "The beginning of my favourite story."
+  },
+  {
+    "id": "movie-night",
+    "source": "movie-night.jpg",
+    "group": "together",
+    "caption": "Same film. Two screens.",
+    "alt": "An approved photograph of a long-distance movie night",
+    "note": "The late-night movie nights are still a little way of being close, even from far away.",
+    "artLabel": "Distance doesn’t get this scene."
+  },
+  {
+    "id": "ordinary-day",
+    "source": "ordinary-day.jpg",
+    "group": "together",
+    "caption": "Just you, on an ordinary day.",
+    "alt": "An approved everyday photograph of Bhavya",
+    "note": "You just existing is a beautiful memory for me. That’s the whole caption.",
+    "artLabel": "Ordinary is my favourite."
+  }
+]

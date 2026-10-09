@@ -1,5 +1,7 @@
 # Complete media checklist — Bhavya’s 21st birthday
 
+**Photo selection update:** both chat batches have been assessed and all 22 slots have selections in [MEDIA_SELECTION.md](MEDIA_SELECTION.md). No additional photo choices are needed. The displayed images are not yet available as downloadable files in this workspace; upload the originals as a ZIP or file attachments to complete the import. The checklist below describes the existing slots, rather than requesting another set of photos.
+
 The birthday story is now primarily about **her**. Shared memories are kept in your letter. There are **22 photo slots**: 10 scrapbook photos, 3 present-day portraits, 5 childhood photos and 4 adventure photos. This does **not** mean 22 different photographs: reuse a favourite across the hero, a scrapbook page and the album if you like. Send only the selected files you want used on the website, with a quick note explaining replacements. Files marked “reference only” will not be published.
 
 ## 1. The ten scrapbook pages — highest priority
